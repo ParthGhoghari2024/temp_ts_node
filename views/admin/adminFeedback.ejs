@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="/css/adminFeedback.css" /> 
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+   
+       <div class="form-popup" id="myForm">
+
+            <form action="" id="feed-form" class="form-container">
+
+                <div class="header">
+                    <h1>Share Your Feedback</h1>
+                    <h5>What would you like to instruct?</h5>
+                </div>
+
+                <div class="fbox1"> 
+                    <p>Give some instructions to student</p>
+                    <p><span id="err1" style="color: red;"></span></p>
+                    <textarea name="feedback" id="feedback" cols="50" rows="6" autofocus></textarea>
+                </div>
+
+                
+                <div class="fbox2">
+                    <input type="submit" id="submit-feedback" class="btn upload" value="Submit">
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
+               
+            </form>
+        </div>
+
+
+        <div class="form-popup1" id="myForm1">
+
+            <div id="feed-form1" class="form-container1">
+
+                <div class="header1">
+                    <h1>You've already given feedback.</h1>
+                </div>
+
+                <div class="fboxnew">
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
+               
+            </div>
+        </div>
+
+
+        <div class="form-popup2" id="myForm2">
+
+            <div id="feed-form2" class="form-container2">
+
+                <div class="header2">
+                    <p id="show-feedback"></p>
+                </div>
+
+                <div class="fboxnew2">
+                    <button type="button" class="btn cancel" onclick="closeViewForm()">Close</button>
+                </div>
+               
+            </div>
+        </div>
+
+
+        <div class="form-popup3" id="myForm3">
+
+            <div id="feed-form3" class="form-container3">
+
+                <div class="header3">
+                    <h1>You have not given any feedback.</h1>
+                </div>
+
+                <div class="fboxnew3">
+                    <button type="button" class="btn cancel" onclick="closeViewForm()">Close</button>
+                </div>
+               
+            </div>
+        </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/adminFeedback.js"></script>
+
+</body>
+</html>

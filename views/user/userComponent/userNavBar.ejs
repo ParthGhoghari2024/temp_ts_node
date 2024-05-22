@@ -1,0 +1,52 @@
+<style>
+  .eyeProtection{
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px ;
+  }
+</style>
+<nav id="nav">
+    <div class="brand" id="navigate-heading">Dashboard</div>
+    <div class="tab">
+      <div id="currentTime" class="currentTime"></div>
+      <ul>
+        <li>
+          <p id="eyeProtection" class="eyeProtection white" style="text-align: center; margin-top: 20px; font-size: 20px;">
+            <i class="fa-solid fa-eye"></i>
+          </p>
+        </li>
+        <li>
+          <div class="notification" id="notification" style="position: relative;">
+            <i class="fa-regular fa-bell" id="notifications" ></i>
+            <span class="badge" id="notificationsCount"></span>
+          </div>
+          <div class="notification-description" id="notification-description">
+            <div class="notification-header" style="display: flex;">
+              <p id="notification-heading">Notifications</p><i class="fa-solid fa-xmark closeButton" id="closeButton"></i>
+            </div>
+            <div class="notification-content" id="notification-content">
+              <p id="empty-notifications"></p>
+              <ul id="ul">
+                
+              </ul>
+            </div>
+          </div>
+        </li>
+       
+        <li id="profile">
+          <a href="/user/userProfile"><span id="profileName">Profile</span>&#160<img src="/user/profileImage" alt="userProfile" style="border-radius: 100px;" width="25px" height="25px"> </a>
+        </li>
+          <li id="logoutNav">
+            <a href="/logout"> 
+              Logout <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/userNavbar.js"></script>
+  <script src="/js/userDashboard/showCurrentTime.js"></script>
+  <script src="/js/userDashboard/fetchName.js"></script>
+

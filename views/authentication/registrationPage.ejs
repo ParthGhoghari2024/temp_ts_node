@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/registrationPage.css">
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css"> 
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="signup-content">
+        <div class="signup-form">
+          <h2 class="form-title">Sign up</h2>
+           <form class="register-form" id="register-form" method="post">
+            <div class="form-group">
+              <label for="fname"><i class="fa-solid fa-user icons"></i></label>
+              <input
+                type="text"
+                name="fname"
+                id="fname"
+                class="requiredtext"
+                placeholder="First Name"
+              />
+              <p id="firstnameerror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="lname"><i class="fa-solid fa-user icons"></i></label>
+              <input
+                type="text"
+                name="lname"
+                id="lname"
+                class="requiredtext"
+                placeholder="Last Name"
+              />
+              <p id="lastnameerror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="email"><i class="fa-solid fa-envelope icons"></i></label>
+              <input type="text" name="email" id="email" class="requiredtext" placeholder="Email" >
+              <p id="emailerror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="dob"><i class="fa-solid fa-calendar icons"></i></label>
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                class="requiredtext DOB"
+                placeholder="yyyy-mm-dd"
+              />
+              <p id="doberror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="contactNo"><i class="fa-solid fa-phone icons"></i></label>
+              <input
+                type="text"
+                name="contactno"
+                id="contactno"
+                class="requiredtext"
+                placeholder="Contact No"
+              />
+              <p id="contacterror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="password"><i class="fa-solid fa-lock icons"></i></i></label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="requiredtext"
+                placeholder="Password"
+              />
+              <p id="pwderror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="re-password"><i class="fa-solid fa-lock icons"></i></label>
+              <input
+                type="password"
+                name="confirmpassword"
+                id="confirmpassword"
+                class="confirmpassword"
+                placeholder="Confirm Password"
+              />
+              <p id="confirmpwderror" class="error"></p>
+            </div>
+            <p id="emptyerror" class="error"></p>
+            <p id="successspan" class="error"></p>
+            <p id="registrationerror" class="error"></p>
+            <div class="form-group form-button">
+              <p
+              id="signupButton"
+              class="form-submit btn btn-primary"
+              value="Sign Up" 
+              >Sign Up</p>
+            </div>
+            <p id="signin">Already have an account?<a href="/" > Sign in.</a></p>
+            <div class="linkbox">
+              <p id="successmsg" style="margin-left: 35px;"></p>
+              <a id="link"></a>
+            </div>
+          </form>
+        </div>
+        <div class="signup-image">
+          <figure><img src="/assets/signup-image.jpg" alt="sing up image" id="signupImage"/></figure>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/registrationForm.js"></script>
+
+  </body>
+</html>

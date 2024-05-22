@@ -1,0 +1,13 @@
+<div class="modal" tabindex="-1" role="dialog" id="<%= id %>">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body d-flex flex-column text-center justify-content-center">
+        <p>
+          <%= message %>
+        </p>
+        <button type="button" class="btn btn-danger" id="errorMsgBtn-<%= id %>" onclick=<%="closeModal('" + id +"')"
+          %>>Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

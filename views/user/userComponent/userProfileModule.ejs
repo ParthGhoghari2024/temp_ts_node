@@ -1,0 +1,103 @@
+<noscript>
+  To Run this module you must trun on Java Script In Your Browser
+</noscript>
+
+<div class="container maindiv" id="userProfile">
+  <h1>Welcome <span id="welcomeUserName"></span></h1>
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="card h-100 vinfo">
+            <div class="card-body">
+                <div class="account-settings">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                        <a href="" target="_blank" id="showImage"><img src="/assets/profileDefaultImage.jpg" id="profileImage" alt="user Image"></a>
+                        </div>
+                        <h5 id="fnameUser" class="user-name userValue"></h5>
+                        <h6 id="emailUser" class="user-name userValue"></h6>
+                    </div>
+                    <div class="about">
+                        <h5 class="ititle">About</h5>
+                        <p id="about"></p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters vinfo">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mb-2 vtitle" style="color: #002f4b;">Personal Details</h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                        <input type="text" hidden id="id">
+                      <p class="ititle">Full Name:&#160</p>
+                      <p id="fname" class="userValue"></p>&#160<span id = "lname" class="userValue"></span>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">Email:&#160</p>
+                    <p id="email" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                      <p class="ititle">Phone:&#160</p>
+                      <p id="phone_no" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">Date Of Birth:&#160</p>
+                    <p id="dob" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+          </div>
+          <div class="row gutters vinfo">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mt-3 mb-2 vtitle" >Address</h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">Address:&#160</p>
+                    <p id="address" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">City:&#160</p>
+                    <p id="city" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">State:&#160</p>
+                    <p id="state" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group userDetail">
+                    <p class="ititle">Zipcode:&#160</p>
+                    <p id="zipcode" class="userValue">&#160&#160 </p>
+                  </div>
+              </div>
+          </div>
+          <div class="row gutters vinfo">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="text-right">
+                  
+                  <a href="/user/userDashboard"><p name="cancel" class="btn btn-secondary" style="border: none;">Home</p></a>
+                  <a href="/user/userProfile/update"><p name="update" style="background-color: #002f4b; border: none;" class="btn btn-primary blueBtn" id="updateUser">&#160Edit&#160</p></a>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

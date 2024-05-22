@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/exam/examQue.css" />
+  <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam User</title>
+  <link rel="stylesheet" href="/css/bootstrap_v4.5.css" />
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+  <link rel="stylesheet" href="/css/userProfileStyle.css" />
+  <link rel="stylesheet" href="/css/userNavbar.css" />
+  <link rel="stylesheet" href="/css/userPanel.css" />
+  <link rel="stylesheet" href="/css/examDetails.css" />
+  <script src="/sweetalert2/sweetalert2.min.js"></script>
+  <script src="/js/boostrap-bundle-js-v4.5.js" type="javascript"></script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+</head>
+<style>
+  
+</style>
+</head>
+
+<body>
+  <div class="dashboard-cont">
+    <%- include("../userComponent/userSideBar.ejs") %>
+
+      <div class="main">
+        <%- include("../userComponent/userNavBar.ejs") %>
+
+          <div class="examQuestion">
+            <%- data %>
+
+
+              <div class="container">
+                <div class="que-section">
+                  <div class="time">
+                    <p>Remaining Time: <span id="duration"></span></p>
+                  </div>
+                  <div class="topics"></div>
+
+                  <div class="questions"></div>
+
+                  <div class="btn">
+                    <button id="previous">Previous</button>
+                    <button id="next">Next</button>
+                  </div>
+                </div>
+
+                <div class="que-section que-status">
+                  <div class="recordtrack">
+                    <div>
+                      <p>Question No.</p>
+                    </div>
+                    <div class="que-box">
+                      <div class="boxes"></div>
+
+                      <div class="attempted-que">
+                        <p>Total Question : <span id="total-que"></span></p>
+                        <p>Attempted : <span id="attempted-que"></span></p>
+                        <p>Remaining : <span id="remaining-que"></span></p>
+                      </div>
+
+                      <div class="status-details">
+                        <span id="saved">Saved</span>
+                        <span id="current">Current</span>
+                        <span id="remaining">Remaining</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</body>
+<script src="/js/exam/examQue.js"></script>
+<script src="/js/exam/examQueFunction.js"></script>
+</body>
+
+</html>

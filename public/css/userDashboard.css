@@ -1,0 +1,45 @@
+/* <div class="banner">
+<div class="img">
+  <img src="/user/assets/avtar.png" alt="" />
+</div>
+<div class="content">
+  <h3>Welcome:- Username,</h3>
+  <p>
+    You have 1 exam today and 3 exam on the way. <br />
+    Please be prepared for it
+  </p>
+</div>
+</div> */
+
+.dashboard{
+  padding: 25px;
+}
+
+.examRow{
+  display: flex;
+  flex-direction: row;
+  row-gap: 10px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card{
+  border: 1px solid;
+  padding: 15px 25px;
+  border-radius: 15px;
+  width: 24%;
+  height: 150px;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  min-width: 170px;
+  flex-shrink: 0;
+}
+
+.card :nth-child(2){
+  font-weight: bold;
+  font-size: 30px;
+}

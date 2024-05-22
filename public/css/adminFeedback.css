@@ -1,0 +1,274 @@
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  padding: 50px;
+  top : 18%;
+  right: 33%;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 1000px;
+  background-color: white;
+}
+
+p {
+  color: #002f4b;
+}
+h1 {
+  color: #002f4b;
+  margin-bottom: 20px;
+}
+h5 {
+  color: #002f4b;
+  margin-bottom: 20px;
+}
+
+.fbox2{
+    margin-top: 15px;
+}
+
+.form-container .upload {
+  background-color: #002f4b;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-container .cancel {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover {
+  opacity: 1;
+}
+
+.form-popup:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.form-popup:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: -1;
+}
+
+
+
+/* The popup form - hidden by default */
+.form-popup1 {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  padding: 50px;
+  top : 50%;
+  right: 28%;
+}
+
+/* Add styles to the form container */
+.form-container1 {
+  max-width: 1000px;
+  background-color: white;
+}
+
+h1 {
+  color: #002f4b;
+  margin-bottom: 20px;
+}
+
+.fboxnew{
+  margin-top: 15px;
+}
+
+.form-container1 .cancel {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Add some hover effects to buttons */
+.form-container1 .btn:hover {
+  opacity: 1;
+}
+
+.form-popup1:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.form-popup1:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: -1;
+}
+
+
+/* The popup form - hidden by default */
+.form-popup2 {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  padding: 40px;
+  top : 35%;
+  right: 25%;
+  left: 25%;
+}
+
+/* Add styles to the form container */
+.form-container2 {
+  max-width: 1000px;
+  background-color: white;
+}
+
+h1 {
+  color: #002f4b;
+  margin-bottom: 20px;
+}
+
+.fboxnew2{
+  margin-top: 15px;
+}
+
+.form-container2 .cancel {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Add some hover effects to buttons */
+.form-container2 .btn:hover {
+  opacity: 1;
+}
+
+.form-popup2:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.form-popup2:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: -1;
+}
+
+
+
+/* The popup form - hidden by default */
+.form-popup3 {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  padding: 50px;
+  top : 50%;
+  right: 28%;
+}
+
+/* Add styles to the form container */
+.form-container3 {
+  max-width: 1000px;
+  background-color: white;
+}
+
+h1 {
+  color: #002f4b;
+  margin-bottom: 20px;
+}
+
+.fboxnew3{
+  margin-top: 15px;
+}
+
+.form-container3 .cancel {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Add some hover effects to buttons */
+.form-container3 .btn:hover {
+  opacity: 1;
+}
+
+.form-popup3:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.form-popup3  :before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: -1;
+}
+
+.fontSize{
+  font-size : 18px;
+}

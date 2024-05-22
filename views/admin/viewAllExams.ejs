@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <title>View All Exams Route</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/fontawesome-free-6.5.2-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/updateExamDetails.css" />
+
+    <link rel="stylesheet" href="/css/viewAllExams.css" />
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+    <style>
+      /* .aside-row {
+         background-color: #002f4b;
+         color: #e9ecef;
+       }
+ 
+       #examDetailsRoute {
+         background-color: #e9ecef;
+         color: #002f4b;
+       } */
+   </style>
+  </head>
+
+  <body>
+    <div class="containerr final">
+      <%- include('sidebar'); %>
+
+      <div class="main" id="main">
+        <%- include('navbar',{id:id}); %>
+        
+        <div class="container-fluid">
+          <div class="row">
+            <main
+            class="main-container w-100"
+            style="display: inline"
+          ></main>
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" ></div>
+
+              <div class="popups" id="myForm">
+                <form class="form-container" id="exam-form">
+                  <h2>Update Exam Details</h2>
+                  <span id="requirederror" style="color: red"></span
+                  ><br /><br />
+                  <input type="hidden" name="examid" id="examid" value="" />
+                  <label for="title"
+                    ><span style="color: red">* </span>Title:</label
+                  ><span id="titlevalidation"></span>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="requireField"
+                  />
+                  <br />
+                    
+                  <label for="start_time"
+                    ><span style="color: red">* </span>Start Time:</label
+                  ><span id="starttimevalidation"></span>
+                  <input
+                    type="datetime-local"
+                    id="start_time"
+                    name="start_time"
+                    class="requireField"
+                  />
+                  <br />
+
+                  <label for="duration"
+                    ><span style="color: red">* </span>Duration
+                    (minutes):</label
+                  ><span id="durationvalidation"></span>
+                  <input
+                    type="text"
+                    id="duration_minute"
+                    name="duration_minute"
+                    class="requireField"
+                  />
+                  <br />
+                  <label for="passing_marks"
+                    ><span style="color: red">* </span>Passing Marks:</label
+                  ><span id="passingmarksvalidation"></span>
+                  <input
+                    type="text"
+                    id="passingmarks"
+                    name="passingmarks"
+                    class="requireField"
+                  />
+                  <br />
+
+                  <label for="instructions"
+                    ><span style="color: red">* </span>Instructions:</label
+                  ><span id="instructionsvalidation"></span>
+                  <textarea
+                    id="instructions"
+                    name="instructions"
+                    class="requireField"
+                  ></textarea>
+                  <br />
+
+                  <input
+                    type="submit"
+                    id="submit"
+                    class="btn upload"
+                    value="Update"
+                  />
+                  <button
+                    type="button"
+                    class="btn cancel"
+                    onclick="closeForm()"
+                  >
+                    Close
+                  </button>
+                </form>
+              </div>
+
+              <div class="popups1" id="deleteForm">
+                <form class="form-container1" id="exam-form">
+                  <h4>Are you sure about deletion of Exam?</h4>
+
+                  <button
+                    type="button"
+                    id="exam-cancle"
+                    class="btn upload"
+                    value="Yes"
+                  >
+                    Delete
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn cancel"
+                    value="No"
+                    onclick="closeDeleteForm()"
+                  >
+                    No
+                  </button>
+                </form>
+              </div>
+
+              <!-- exp start -->
+              <div class="main-content">
+                <div class="headers">
+                  <div class="dropdown f1">
+                    <select
+                      class="select-difficulty"
+                      id="allstatus"
+                      name="allstatus"
+                      style="
+                        background-color: #002f4b;
+                        padding: 8px 2px;
+                        border-radius: 5px;
+                        color: white;
+                      "
+                    >
+                      <option value="#" aria-disabled="true">
+                        Filter By Status
+                      </option>
+                      <option value="upcoming">Upcoming</option>
+                      <option value="ongoing">Ongoing</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                  </div>
+                  <div class="f1">
+                    <input
+                      type="text"
+                      id="search"
+                      placeholder="Search Here.."
+                      aria-label="Search"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="card"
+                  style="min-width: 350px; width: auto; margin-top: -20px"
+                >
+                  <div
+                    class="card-header"
+                    style="
+                      color: white;
+                      font-size: 1.4em;
+                      font-weight: 500;
+                      background-color: #002f4b;
+                    "
+                  >
+                    Exam Details
+                  </div>
+
+                  <div class="card-body">
+                    <div
+                      class="recordsContainer table table-bordered table-responsive"
+                      id="recordsContainer"
+                    ></div>
+                    <p id="norecordsfound"></p>
+
+                    <div class="paginationController" id="paginationController">
+                      <input
+                        type="button"
+                        id="paggingLink-prev"
+                        value="Previous"
+                        onclick="prevPage()"
+                        disabled
+                      />
+                      <span id="pageTagSpan">1</span>
+                      <input
+                        type="button"
+                        id="paggingLink-next"
+                        value="Next"
+                        onclick="nextPage()"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/examDetails.js"></script>
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+      ids("navBarStatus").innerHTML = "Exam Lists";
+    </script>
+  </body>
+</html>

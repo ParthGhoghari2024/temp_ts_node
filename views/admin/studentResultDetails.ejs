@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <title>Student Details Route</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+    
+    <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+    <link rel="stylesheet" href="/css/studentResultDetails.css"/>
+    <link rel="shortcut icon" href="#">
+    <style>
+      .aside-row {
+        background-color: #002f4b;
+        color: #e9ecef;
+      }
+
+      #resultRoute {
+        background-color: #e9ecef;
+        color: #002f4b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="containerr final">
+      <%- include('sidebar'); %>
+      <div class="main" id="main">
+        <%- include('navbar',{id:id}); %> <%- include('adminFeedback'); %>
+        <div class="container-fluid">
+          <div class="d-flex justify-content-center">
+            <main class="col-md-9 ms-sm-auto col-lg-10" style="display: inline">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+              ></div>
+              <div class="main-content">
+                <div class="headers">
+                  <div class="dropdown f1">
+                    <select
+                      class="select-difficulty"
+                      id="allexams"
+                      name="allexams"
+                      style="
+                        background-color: #002f4b;
+                        padding: 8px 2px;
+                        border-radius: 5px;
+                        color: white;
+                      "
+                    ></select>
+                  </div>
+
+                  <div class="f1">
+                    <input
+                      type="text"
+                      id="searchText"
+                      placeholder="Search Here.."
+                      aria-label="Search"
+                      style="padding: 5px 40px 5px 2px; border-radius: 5px"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="card"
+                  style="min-width: 350px; width: auto; margin-top: -20px"
+                >
+                  <div
+                    class="card-header"
+                    style="
+                      color: white;
+                      font-size: 1.4em;
+                      font-weight: 500;
+                      background-color: #002f4b;
+                    "
+                  >
+                    Result Details
+                  </div>
+
+                  <div class="card-body">
+                    <div
+                      class="recordsContainer table table-responsive table-bordered"
+                      id="recordsContainer"
+                    ></div>
+                    <p id="norecordsfound"></p>
+
+                    <div class="paginationController" id="paginationController">
+                      <input
+                        type="button"
+                        id="paggingLink-prev"
+                        value="Previous"
+                        onclick="prevPage()"
+                        disabled
+                      />
+                      <span id="pageTagSpan">1</span>
+                      <input
+                        type="button"
+                        id="paggingLink-next"
+                        value="Next"
+                        onclick="nextPage()"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/studentResults.js"></script>
+    <script>
+      ids("navBarStatus").innerHTML = "Student Results";
+    </script>
+  </body>
+</html>

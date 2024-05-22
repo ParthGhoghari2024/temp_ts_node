@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/adminNavbar.css" />
+<link rel="stylesheet" href="/css/userNavbar.css">
+<nav>
+  <div class="bar setcolor brand" id="navBarStatus">examSoft</div>
+  <div class="tab">
+
+    <ul class="d-flex align-items-center">
+      <li class="d-flex flex-column align-items-center">
+        <span class="display-time fs-5">11:59:00</span>
+      </li>
+      <div class="display-picture">
+        <img src="/admin/setPhoto/<%= id %>" alt="err" height="40px"><!--Profile Image-->
+      </div>
+    </ul>
+    <div class=" logout-navigate loginNavigate hidden"><!--ADD TOGGLE HIDDEN CLASS ATTRIBUTE HERE-->
+      <ul><!--MENU-->
+        <li><a href="/admin/adminProfile">Profile</li></a>
+        <li><a href="/logout">Logout</li></a>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script src="/js/adminNavbar.js"></script>

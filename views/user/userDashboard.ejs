@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- header added in dashboard -->
+  <%- include("./userDashboardHead.ejs") %>
+  <style>
+       .aside-row {
+        background-color: #002f4b;
+        color: #e9ecef;
+      }
+
+      #homeRoute {
+        background-color: #e9ecef;
+        color: #002f4b;
+      }
+  </style>
+  <body class="body">
+    <div class="dashboard-cont" id="dashboard-cont">
+      <%- include("./userComponent/userSideBar.ejs") %>
+
+      <div class="main" id="main">
+        <%- include("./userComponent/userNavBar.ejs") %>
+
+        <div class="examdetails" id="examDetails">
+          <%- include("./userComponent/examdetails.ejs") %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/js/userDashboard/activationCodeValidation.js"></script>
+  <script src="/js/userDashboard/examDetailsPagination.js"></script>
+  <script src="/js/blackWhite.js"></script>
+</html>

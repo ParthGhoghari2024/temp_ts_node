@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/fontawesome-free-6.5.2-web/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/fontawesome-free-6.5.2-web/css/all.min.css"
+    />
+   <link rel="stylesheet" href="/css/analysis.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+   <style>
+    .aside-row {
+       background-color: #002f4b;
+       color: #e9ecef;
+     }
+
+     #analysisRoute {
+       background-color: #e9ecef;
+       color: #002f4b;
+     }
+ </style>
+  </head>
+  <body>
+    <div class="containerr">
+      <%- include('sidebar'); %>
+
+    <div class="main" id="main">
+      <%- include('navbar',{id:id});%>
+      <div class="charts">
+        <div class="main1">  
+          <div class="chart-content">
+            <p class="title">Overall Analysis</p>
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="chart-content">
+            <p class="title">Category Questions Analysis</p>
+            <canvas id="myChart2" ></canvas>
+          </div>
+        </div>
+        <div class="main2">  
+          <div class="chart-content">
+            <p class="title">Passed Students Analysis</p>
+            <canvas id="myChart3"></canvas>
+          </div>
+          <div class="chart-content">
+            <p class="title">Questions Difficulty Analysis</p>
+            <canvas id="myChart4" ></canvas>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="/js/scriptForChartCDN.js"></script>
+    <script>
+     
+        let topics = `<%=topic%>`;
+        let students = `<%=students%>`;
+        let exams = `<%=exams%>`;
+        let questionTopics = JSON.parse(`<%-JSON.stringify(questionsTopics)%>`);
+        let passingStudents = JSON.parse(`<%-JSON.stringify(passingStudents)%>`)
+        let QuestionsDifficulty = JSON.parse(`<%-JSON.stringify(questionsDifficulty)%>`);
+
+        let xValues = ["Exams", "Topics", "Students"];
+        let yValues = [exams,topics,students];
+        let barColors = ["#ffee93", "#ADD8E6","#79addc"];
+
+
+        //chart 1
+        new Chart("myChart", {
+          type: "doughnut",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                backgroundColor: barColors,
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: {display: false}
+          },
+        });
+
+        //chart 2
+        let xValues2 =[];
+        let yValues2 =[];
+        
+        questionTopics.forEach((element)=>{
+          xValues2.push(element.topic)
+          yValues2.push(element.count)
+        })
+
+        let barColors2=[];
+        let length = questionTopics.length;
+        
+        for(let i=0; i<length;i++){
+          let randomColor = Math.floor(Math.random()*16777215).toString(16);
+          barColors2.push("#"+randomColor);
+        }
+        new Chart("myChart2", {
+          type: "bar",
+          data: {
+          labels: xValues2,
+          datasets: [{
+          backgroundColor: barColors2,
+          data: yValues2
+        }]
+        },
+        options: {
+          legend: {display: false},
+         scales: {
+          yAxes: [{ticks: {min: 0}}],
+          }
+         }
+        });
+
+        //chart 3
+        const xValues3 = [];
+        const yValues3 = [];
+
+        passingStudents.forEach((element)=>{
+          xValues3.push(element.title)
+          yValues3.push(element.passing_students);
+        })
+
+        new Chart("myChart3", {
+          type: "line",
+          data: {
+          labels: xValues3,
+          datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "#002f4b",
+          borderColor: "rgba(0,0,255,0.1)",
+          data: yValues3
+        }]
+        },
+        options: {
+          legend: {display: false},
+          scales: {
+          yAxes: [{ticks: {min: 0}}],
+          },
+        }
+        });
+
+        //chart 4
+
+        let xValues4 =[];
+        let yValues4 =[];
+        let barColors3 =["#ffbdb9 ","#aed3e1","#d7c5ed"]
+        QuestionsDifficulty.forEach((element)=>{
+          xValues4.push(element.difficulty)
+          yValues4.push(element.count)
+        })
+        new Chart("myChart4", {
+          type: "bar",
+          data: {
+            labels: xValues4,
+            datasets: [
+              {
+                backgroundColor: barColors3,
+                data: yValues4,
+              },
+            ],
+          },
+          options: {
+            legend: {display: false},
+            scales: {
+          yAxes: [{ticks: {min: 0}}],
+          },
+          },
+          
+        });
+
+    </script>
+     <script>
+      ids("navBarStatus").innerHTML = "Exam Analysis";
+    </script>
+  </body>
+</html>

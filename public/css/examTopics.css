@@ -1,0 +1,103 @@
+.card {
+  width: 350px;
+  height: 100px;
+  box-shadow: 1px 1px 1px gray;
+}
+.row {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 50px;
+}
+.card-icons {
+  display: flex;
+  flex-direction: column;
+  margin-top: -30px;
+  gap: 5px;
+}
+.card-title {
+  color: grey;
+}
+.button {
+  margin-left: 160px;
+}
+
+.examTopicsIcons {
+  margin-left: 280px;
+  color: #002f4b;
+  opacity: 0.9;
+  font-size: 25px;
+}
+
+#popupDialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 400px;
+  border-radius: 10px;
+}
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+#category {
+  width: 100%;
+  border-radius: 10px solid grey;
+}
+#footer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.addCategory {
+  margin-left: 70px;
+  background-color: #002f4b;
+  width: 124px;
+  height: 37px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #002f4b;
+  margin-top: 40px;
+}
+.closeCategory {
+  width: 60px;
+  height: 37px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(59, 55, 55);
+  background-color: rgb(59, 55, 55);
+}
+.saveCategory,
+#editCategory {
+  background-color: #002f4b;
+  width: 124px;
+  height: 37px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #002f4b;
+}
+.containerr {
+  display: flex;
+  height: 100%;
+}
+.containerNavbar {
+  overflow-y: auto;
+  width: 100%;
+}
+#categoryError {
+  color: red;
+  font-size: 13px;
+}

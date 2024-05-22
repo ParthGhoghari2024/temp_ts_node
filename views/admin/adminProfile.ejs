@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+    <link rel="stylesheet" href="/css/userProfileStyle.css"> 
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="shortcut icon" href="#">
+    <style>
+      .aside-row {
+         background-color: #002f4b;
+         color: #e9ecef;
+       }
+ 
+       #dashboardRoute {
+         background-color: #e9ecef;
+         color: #002f4b;
+       }
+   </style>
+  </head>
+
+  <body>
+    <div class="containerr">
+      <%- include('sidebar'); %>
+
+      <div class="main" id="main">
+        <%- include('navbar',{id:id}); %>
+
+        <div class="container maindiv" id="userProfile">
+          <h1>Admin Profile</h1>
+          <div class="row gutters" id="profileContainer">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+              <div class="card h-100 vinfo">
+                <div class="card-body">
+                  <div class="account-settings">
+                    <div class="user-profile">
+                      <div class="user-avatar">
+                        <img
+                          src="/admin/setPhoto/<%= id %> "
+                          alt="err"
+                          id="admin-photo"
+                        />
+                      </div>
+                      <h5 id="fnameUser"><%= full_name %></h5>
+                      <h6 id="emailUser"><%= email %></h6>
+                    </div>
+                    <div class="about">
+                      <h5>About</h5>
+                      <p id="about">
+                       <%= about %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="row gutters vinfo">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <h6 class="mb-2 text-primary vtitle">Personal Details</h6>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <input type="text" hidden id="id"  value="<%=id%>"/>
+                        <p class="ititle">Full Name:&#160;</p>
+                        <%= full_name %>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">Email:&#160;</p>
+                        <p id="email" class="userValue">
+                          &#160;&#160;  <%= email %>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">Phone:&#160;</p>
+                        <p id="phone_no" class="userValue">
+                          &#160;&#160;   <%= phone_no %>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">Date Of Birth:&#160;</p>
+                        <p id="dob" class="userValue">
+                          &#160;&#160;  <%= dob %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row gutters vinfo">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <h6 class="mt-3 mb-2 text-primary vtitle">Address</h6>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">Address:&#160;</p>
+                        <p id="address" class="userValue">
+                          &#160;&#160;  <%= address %>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">City:&#160;</p>
+                        <p id="city" class="userValue">&#160;&#160;  <%= city %></p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">State:&#160;</p>
+                        <p id="state" class="userValue">&#160;&#160;   <%= state %></p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group userDetail">
+                        <p class="ititle">Zipcode:&#160;</p>
+                        <p id="zipcode" class="userValue">
+                          &#160;&#160;   <%= zipcode %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row gutters vinfo">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <div class="text-right">
+                        <a href="/admin/"
+                          ><p name="cancel" class="btn btn-secondary">
+                            Home
+                          </p></a
+                        >
+                        <a href="/admin/adminProfileUpdate"
+                          ><p
+                            name="update"
+                            class="btn btn-primary"
+                            id="updateUser"
+                          >
+                            &#160;Edit&#160;
+                          </p></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+
+      </div>
+
+    </div>
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+      ids("navBarStatus").innerHTML = "Profile";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+</head>
+<link rel="stylesheet" href="/css/scoreCard.css"> 
+
+<body> 
+  
+  <noscript>
+    To Run this module you must trun on Java Script In Your Browser
+  </noscript>
+  <div class="main">
+    <div class="examTitle">
+      <div class="examTitleInfo">
+        <h1 id="scoreCardTitle">Score Card</h1>
+        <h2 class="examName" id="examName">Exam Name: <span id="title"></span></h2>
+      </div>
+      <div class="examProfileInfo">
+        <a href="/user/userProfile"><img id="setImage" src="/user/profileImage" class="userImage" alt="profilePic"></a>
+        <p id="name"><span id="fname"></span>&#160<span id="lname"></span></p>
+      </div>
+    </div>
+    <div class="examDatail">
+      <div class="examInfo">
+        <p class="eDate" id="eDate">Date: <span id="exam_date">20-04-2024</span></p>
+        <p class="eDuration" id="eDuration">Duration: <span id="duration_minute"></span></p>
+        <p class="eExamId" id="examId">ExamId: <span id="exam_id">00001</span></p>
+      </div>
+      <div class="flex-container2">
+        <div class="progress-bar marks">
+          <progress id="progrossId" value="70" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress>
+        </div>
+        <canvas id="myChartDonut" style="max-width: 500px;display: block;" width="600" height="295"></canvas>
+        <canvas id="myChart" style="max-width: 500px;display: block;" width="600" height="300" class="chartjs-render-monitor"></canvas>
+      </div>
+      
+      <div class="scoreInfo">
+        <p class="obtainMarks"><span id="marks"></span>/<span class="totalMarks" id="total_marks">100</span></p>
+      </div>
+      
+      <div class="scoreTableResult">
+        <table class="scoreTable">
+          <thead class="thead">
+            <th>No</th>
+            <th>Topic Name</th>
+            <th>Result</th>
+            <th>Total</th>
+          </thead>
+          <tbody id="scoreTableBody" class="tbodyScore"></tbody>
+        </table>
+      </div>
+
+      <p class="status" id="status"> PASS </p>
+    </div> 
+
+    <div class="buttonsBottom">
+      <a href="/user/results" class="adv"><p id="advanced">Back</p></a>
+      <p class="adv" id="download">Download</p>
+    </div>
+    <div id="footerDiv">
+      <p class="footerText">Thank You :)</p>
+    </div>
+  </div>
+</body>
+
+
+<script src="/js/scriptForChartCDN.js"></script>
+<script src="/js/scoreCard.js"></script>
+</html>

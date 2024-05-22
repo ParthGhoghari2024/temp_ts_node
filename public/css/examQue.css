@@ -1,0 +1,161 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.topics {
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.topics p,
+.time p {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.que-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.queans {
+  width: 800px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  background-color: rgb(241, 241, 241);
+  border-radius: 10px;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding:5px 20px;
+  
+}
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.opts div{
+  display: flex;
+  gap: 10px;
+}
+
+.que-status{
+ 
+  padding: 20px 0;
+  background-color: #eff3f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.recordtrack{
+  
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.que-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boxes{
+  display: flex;
+  gap: 20px;
+}
+
+.boxes span{
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.status-details{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status-details span{
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+#saved{
+  background-color: green;
+  color: white;
+  border-color: green;
+}
+
+#current{
+  background-color: rgb(214, 148, 25);
+  color: white;
+  border-color: rgb(214, 148, 25);
+}
+
+#remaining{
+  background-color: white;
+}
+
+.btn{
+  display: flex;
+  padding: 0 10px;
+  align-items:center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+button{
+  background-color: #357ae9;
+  padding: 8px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}
+
+button:hover{
+  color: #357ae9;
+  background-color: white;
+  border-color: #357ae9;
+}
+
+#previous{
+  visibility: hidden;
+}
+

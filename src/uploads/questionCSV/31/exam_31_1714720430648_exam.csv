@@ -1,0 +1,61 @@
+,,,,,,,,,
+1, What is the full form of DBMS?,easy,DBMS,Data of Binary Management System,Database Management System,Database Management Service,Data Backup Management System,2,1
+2,What is a database?,easy,DBMS,Organized collection of information that cannot be accessed updated and managed,Collection of data or information without organizing,Organized collection of data or information that can be accessed and updated and managed,Organized collection of data that cannot be updated,3,1
+3,What is DBMS?,easy,DBMS,DBMS is a collection of queries,DBMS is a high-level language,DBMS is a programming language,DBMS stores modifies and retrieves data,4,1
+4,Who created the first DBMS?,easy,DBMS,Edgar Frank Codd,Charles Bachman,Charles Babbage,Sharon B. Codd,2,1
+5,Which type of data can be stored in the database?,easy,DBMS,Image oriented data,Text files containing data,Data in the form of audio or video,All of the above,4,1
+6,"In which of the following formats data is stored, in the database management system?",easy,DBMS,Image,Text,Table,Graph,3,1
+7,Which of the following is not a type of database?,easy,DBMS,Hierarchical,Network,Distributed,Decentralized,4,1
+8,Which of the following is not an example of DBMS?,medium,DBMS,MySQL,Microsoft Acess,IBM DB2,Google,4,1
+9,Which of the following is not a feature of DBMS? ,medium,DBMS,Minimum Duplication and Redundancy of Data,High Level of Security,Single-user Access only,Support ACID Property,3,1
+10,Which of the following is a feature of the database? ,medium,DBMS,No-backup for the data stored,User interface provided,Lack of Authentication,Store data in multiple locations,2,1
+11,Which of the following is not a function of the database? ,medium,DBMS,Managing stored data,Manipulating data,Security for stored data,Analysing code,4,1
+12,Which of the following is a function of the DBMS?,medium,DBMS,Storing data,Providing multi-users access control,Data Integrity,All of the above,4,1
+13, Which of the following is a component of the DBMS?,medium,DBMS,Data,Data Languages,Data Manager,All of the above,4,1
+14,Which of the following is known as a set of entities of the same type that share same properties or attributes?,medium,DBMS,Relation set,Tuples,Entity set,Entity Relation model,3,1
+15, What is information about data called? ,hard,DBMS,Hyper data,Tera data,Meta data,Relations,3,1
+16,What does an RDBMS consist of?,hard,DBMS,Collection of Records,Collection of Keys,Collection of Tables,Collection of Fields,3,1
+17,The values appearing in given attributes of any tuple in the referencing relation must likewise occur in specified attributes of at least one tuple in the referenced relation according to _____________________ integrity constraint.,hard,DBMS,Referential,Primary,Referencing,Specific,1,1
+18, _____________ is a hardware component that is most important for the operation of a database management system. ,hard,DBMS,Microphone,High speed large capacity disk to store data,High-resolution video display,Printer,2,1
+19,The DBMS acts as an interface between ________________ and ________________ of an enterprise-class system.,hard,DBMS,Data and the DBMS,Application and SQL,Database application and the database,The user and the software,3,1
+20,Which command is used to remove a relation from an SQL?,hard,DBMS,TCL (Transaction Control Language),DCL (Data Control Language),DDL (Data Definition Langauge),DML (Data Manipulation Langauge),4,1
+21,Which among the following represents correct constructor?,easy,OOP,–classname(),classname(),()classname,~classname(),2,1
+22,What happens when an object is passed by reference?,easy,OOP,Destructor is called at end of function,Destructor is called when called explicitly,Destructor is not called,Destructor is called when function is out of scope,3,1
+23,Which access specifier is usually used for data members of a class?,easy,OOP,Protected,Private,Public,Default,2,1
+24,How to access data members of a class?,easy,OOP,Dot arrow or direct call,Dot operator,Arrow operator,Dot or arrow as required,4,1
+25,Which feature of OOP reduces the use of nested classes?,easy,OOP,Inheritance,Binding,Abstraction,Encapsulation,1,1
+26,Which keyword among the following can be used to declare an array of objects in java?,easy,OOP,allocate,arr,new,create,3,1
+27,Which operator can be used to free the memory allocated for an object in C++?,easy,OOP,Unallocate,Free(),Collect,delete,4,1
+28,Which of the following is not a property of an object?,easy,OOP,Properties,Names,Identity,Attributes,2,1
+29,Which type of members can’t be accessed in derived classes of a base class?,easy,OOP,All can be accessed,Protected,Private,Public,3,1
+30,Which among the following best describes the Inheritance?,medium,OOP,Using the data and functions into derived segment,Using already defined functions in a programming language,Using the code already written once,Copying the code already written,1,1
+31,Single level inheritance supports _____________ inheritance.,medium,OOP,Language independency,Multiple inheritance,Compile tim,Runtime,4,1
+32,How to overcome diamond problem?,medium,OOP,Using seperate derived class,Using virtual keyword with same name function,Can’t be done,Using alias name,2,1
+33,Which keyword is used to declare virtual functions?,medium,OOP,virt,virtually,virtual,anonymous,3,1
+34,What happens if non static members are used in static member function?,medium,OOP,Executes fine,Compile time error,Executes if that member function is not used,Runtime error,2,1
+35,What is friend member functions in C++?,medium,OOP,Non-member functions which have access to all the members (including private) of a class,Member function which doesn’t have access to private members,Member function which can modify any data of a class,Member function which can access all the members of a class,1,1
+36,Where is the memory allocated for the objects?,medium,OOP,Cache,ROM,HDD,RAM,4,1
+37,Which of the following best describes member function overriding?,medium,OOP,Member functions having the same name in derived class only,Member functions having the same name and different signature inside main function,Member functions having the same name in base and derived classes,Member functions having the same name in base class only,3,1
+38,Encapsulation and abstraction differ as ____________,medium,OOP,Hiding and hiding respectively,Binding and Hiding respectively,Hiding and Binding respectively,Can be used any way,2,1
+39,Which feature of OOP is exhibited by the function overriding?,hard,OOP,Polymorphism,Encapsulation,Abstraction,Inheritance,1,1
+40,How to access the private member function of a class?,hard,OOP,Using class address,Using object of class,Using object pointer,Using address of member function,4,1
+41,What is the average of first five multiples of 12?,easy,Maths,36,38,40,12,1,1
+42,Average of five numbers is 20. If each number is multiplied by 2 what will be the new average?,easy,Maths,30,40,50,60,2,1
+43,If the average of three consecutive even numbers is 34 find the largest of these numbers.,easy,Maths,30,32,34,36,4,1
+44,10 typists can type 600 pages in 8 hours.Find the average number of pages typed by each typist in an hour.,easy,Maths,7 pages,7.5 pages,8 pages,8.5 pages,2,1
+45,The average of Sohan's marks in 6 subjects is 74. If his average in five subjects excluding science is 70 how many marks he obtained in science?,easy,Maths,94,92,90,88,1,1
+46,Average age of a group of 30 boys is 16 years. A boy of age 19 leaves the group and a new boy joins the group. If the new average age of the group is 15.8 years find the age of the new boy.,easy,Maths,12 years,13 years,14 years,15 years,2,1
+47,The average weight of 10 men is decreased by 2 kg when one of them whose weight is 60 kg is replaced by a new man. What is the weight of the new man?,easy,Maths,35 kg,40 kg, 45 kg, 50 kg,2,1
+48,The average age of 30 boys in a class is 15 years. If we include the age of two teachers the average age increases by 1. Find the sum of ages of the two teachers.,easy,Maths,55 years,58 years,62 years,64 years,3,1
+49,The average age of the committee of 10 members is 40 years. A member of age 52 retires and a new member of age 38 takes his place. What is the average age of the present committee?,easy,Maths,38.6 years,33.5 years, 35.5 years, 37.5 years,1,1
+50,Four years ago the average age of A and B was 20 years. If today average age of A and B and C is 25 years. what will be age of C after 7 years?,hard,Maths,32 years,34 years,36 years, 38 years,2,1
+51,She sings ________ beautifully that everyone enjoys her performances.,medium,English,so,too,such,very,1,1
+52,I would like ________ a doctor someday.,medium,English,becoming,to become,become,becomes,2,1
+53,We've known each other ________ we were children.,medium,English,since,for,from,during,1,1
+54,The package arrived ________ the expected delivery date.,medium,English,on,in,at,before,4,1
+55,He went to the store ________ buy some groceries.,medium,English,to,too,two,2,1,1
+56,The cat is hiding ________ the bed.,easy,English,in,on,under,between,3,1
+57,________ of my friends are coming to the party.,easy,English,Many,Much,More,Most,1,1
+58,I can't believe ________ my keys at home.,easy,English,I forget,I forgot,I have forgotten,I've forget,2,1
+59,He is the ________ of the two brothers.,hard,English,younger,more young,young,youngest,1,1
+60,The cake tasted ________ sweet that I couldn't finish it.,hard,English,so,such,very,too,4,1

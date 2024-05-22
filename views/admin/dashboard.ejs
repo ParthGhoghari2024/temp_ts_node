@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+    <link rel="stylesheet" href="/css/userPanel.css">
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+  </head>
+  <style>
+     .aside-row {
+        background-color: #002f4b;
+        color: #e9ecef;
+      }
+
+      #dashboardRoute {
+        background-color: #e9ecef;
+        color: #002f4b;
+      }
+  </style>
+  <body>
+    <div class="final">
+    <%- include('sidebar'); %>
+
+      <div class="main"  id="main">
+        <%- include('navbar',{id : id}); %>
+
+        <div class="container-fluid">
+          <div class="row">
+            <main class="col-md-9 col-lg-10 px-md-2 w-100" id="op">
+              <div class="setcolor dasboard-text">
+                <br />
+                <h2 style="margin-left: -840px;">Welcome to Admin Dashboard</h2>
+                <p style="margin-right: 1015px;">Conduct Remote Online Examination.</p>
+                <hr />
+                <h3 style="margin-right: 1165px;">Overview</h3>
+              </div>
+
+             
+              <div class="mainbox">
+              
+             <a href="/admin/students/studentdetailspage">
+              <div class="box" id="students"  style="background-color: #FF407D;">
+                <p class="box-title ">TOTAL STUDENTS</p>
+                <p class="num  "><%=total_students%></p>
+              </div>
+             </a>
+             <a href="/admin/exams/topics">
+              <div class="box" id="topics" style="background-color: #ff9f18;">
+                <p class="box-title ">TOTAL TOPICS</p>
+                <p class="num "><%=total_topics%></p>
+              </div>
+             </a>   
+               <a href="/admin/students/allexamspage">
+                <div class="box" id="" style="background-color: #1eba1e;">
+                  <p class="box-title ">TOTAL EXAMS</p>
+                  <p class="num "><%=total_exams%></p>
+                </div>
+               </a>
+              </div>
+
+              <hr />
+
+              
+
+              <div class="filter">
+              <div class="f1">
+                <h3 class="setcolor" style="padding-right: 515px;">Analytical Overview</h3>
+              </div>
+              <div class="f1">
+                <select class="select-difficulty" id="status" name="status"
+                style="background-color: #002f4b; color: white; ">
+                <option value>Filter By Exam Status</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+              </select>
+              </div>
+              
+              <div class="f1">
+                <input type="text" name="searchText" id="searchText" style="padding: 5px 40px 5px 2px ;border-radius:5px;" placeholder="Search By Exam Name">
+              </div>
+               
+              </div>
+
+              <div class="mainbox">
+                <div class="card" style="min-width: 1300px;width: auto; margin-top: 25px">
+                  <div
+                    class="card-header"
+                    style="
+                      color: white;
+                      font-size: 1.4em;
+                      font-weight: 500;
+                      background-color: #002f4b;
+                    "
+                  >
+                    Exams Overview
+                  </div>      
+                 
+                  <div class="card-body">
+                    <p id="norecordsfound" style="text-align: center; margin-top: 20px; font-size: 1.4em; font-weight:500;"></p>
+                    <div class="recordsContainer table table-bordered table-responsive " id="recordsContainer">
+                    </div>    
+                    <div class="pagination" id="pagination">
+  
+                      <input type="button" id="paggingLink-prev" value="Previous" onclick="prevPage()" disabled>
+      
+                      <span id="pageTagSpan">1</span>
+      
+                      <input type="button" id="paggingLink-next" value="Next" onclick="nextPage()">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+             
+
+            </main>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+    <script src="/js/adminDashboard.js"></script>
+    <script>
+      ids("navBarStatus").innerHTML = "Dashboard";
+    </script>
+  </body>
+</html>

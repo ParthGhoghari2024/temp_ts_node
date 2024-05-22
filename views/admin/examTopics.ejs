@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/examTopics.css"/>
+    <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+    <title>Category</title>
+    <style>
+      .aside-row {
+         background-color: #002f4b;
+         color: #e9ecef;
+       }
+ 
+       #categoryRoute {
+         background-color: #e9ecef;
+         color: #002f4b;
+       }
+       .categoryContainer{
+        max-width: 1200px;
+        margin: 0 auto;
+       }
+   </style>
+  </head>
+  <body>
+    <div class="final" >
+        <%- include('sidebar'); %>
+      <div class="main" id="main">
+        <%- include('navbar',{id:id}); %>
+      <div class="categoryContainer">
+      <div class="header" >
+        <button type="button" class="addCategory" onclick="popupFn()">Add Category</button>
+      </div>
+      
+      <div id="overlay"></div>
+      <div id="popupDialog">
+        <p id="addcategory">Add Category</p>
+        <p id="editCategoryy">Edit Category</p>
+        <input type="text" name="category" id="category">
+        <span id="categoryError"></span>
+        <div class="footer" id="footer">
+          <button onclick="closeFn()" class="closeCategory" id="closeCategory">Close</button>
+         <button class="saveCategory" onclick="saveCategory()" id="saveCategory">Save Category</button>
+         <button class="editCategory"  id="editCategory">Edit Category</button>
+        </div>
+      </div>
+      <% if(category !== false){%>
+        <div class="row row-cols-3 g-3">
+        <% for(let i =0; i<category.length; i++) { %>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%=category[i].topic%></h5>
+              <div class="card-icons">
+              <span><i class="fa-solid fa-pen-to-square examTopicsIcons" onclick="editCategory(`<%=category[i].id%>`)"></i></span>
+              <span><i class="fa-solid fa-trash-can examTopicsIcons" onclick="deleteCategory(`<%=category[i].id%>`)"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+      </div>
+    </div>
+    </div>
+    <script src="/js/examTopics.js"></script>
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+      ids("navBarStatus").innerHTML = "Exam Topics";
+    </script>
+  </body>
+</html>

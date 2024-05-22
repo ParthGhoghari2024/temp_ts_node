@@ -1,0 +1,36 @@
+<div class="feedback">
+  <!-- <div id="examStatus" class="examStatus">Results</div> -->
+  <div class="infoSectionRow">
+    <div id="results" class="resultStatusDiv"> 
+      <p class="searchBarP"><input type="text" id="searchBar" placeholder="Search Result"><i class="fa-solid fa-magnifying-glass" id="iconSearch"></i></p>
+    </div>
+    <div class="pagination">
+      <a onclick="firstPage()"><i class="fa-solid fa-backward"></i></a>
+      <a onclick="previousPage()" ><i class="fa-solid fa-backward-step"></i></a>
+      <a onclick="nextPage()"><i class="fa-solid fa-forward-step"></i></a>
+      <a onclick="lastPage()" ><i class="fa-solid fa-forward"></i></a>
+    </div>
+  </div>
+  <table class="feedbackTable">
+    <thead class="thead">
+      <th id="number">NO</th>
+      <th>Instructor</th>
+      <th>Exam Name</th>
+      <th>Exam Date</th>
+      <th id="result">Feedback</th>
+    </thead>
+    <tbody id="tbody">
+    </tbody> 
+    <div class="form-popup" id="myForm">
+      <div id="feed-form" class="form-container">
+        <div class="header">
+            <p id="feedback-popup-id"></p>  
+        </div> 
+        <div class="fbox2">
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button> 
+        </div> 
+      </div> 
+    </div>
+  </table>
+</div>
+

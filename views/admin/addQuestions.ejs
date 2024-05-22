@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add questions</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/addQuestions.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/papaparse.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+</head>
+
+<body>
+  <div class="containerr final">
+    <%- include('sidebar'); %>
+
+      <div class="main " id="main">
+        <%- include('navbar',{id:id}); %>
+
+          <% if (startingTimeError===1){ %>
+
+
+            <%- include("updateQuestionsTimingError",{ headerText
+              : "Questions can be add or update in Only Upcomming exams" , shortErroMsg : "Exam Timing Error" ,
+              errorDesc : "Ongoing or completed exams's questions cannot be modified " }) %>
+              <% } else {%>
+                <div class="d-flex flex-column align-items-center  ">
+
+                  <main class="d-flex  flex-column align-items-center  border mt-2">
+                    <div class=" d-flex justify-content-center btn-group me-2 mt-1 fs-5  h-5 " style="width: 100%;">
+                      <input type="button"
+                        class="btn fs-5  sectionNavBtn btn-sm btn-outline-secondary  sectionBtn sectionBtn-active w-100"
+                        value="Import With CSV" id="activeCSVSectionBtn" onclick="activeImportCSVSection()" />
+                      <input type="button" class="btn fs-5 sectionNavBtn  btn-sm btn-outline-secondary sectionBtn w-100"
+                        value="Add manually" id="activeManualSectionBtn" onclick="activeManualSection()" />
+                      <input type="button" class="btn fs-5 sectionNavBtn  btn-sm btn-outline-secondary sectionBtn w-100"
+                        value="Update Questions" id="updateQuestionsRedirectBtn"
+                        onclick="openModal('redirectingToUpdateModal')" />
+                    </div>
+                    <div class="d-flex flex-column align-items-center alert alert-dark w-100 fs-4 mt-2"
+                      id="totalQuestionsDetails">
+                      <span>Already present Questions : <span id="totalQuestionsCount"></span></span>
+                      <span>Total Score of present Questions : <span id="totalScoreCount"></span></span>
+                    </div>
+
+                    <div class="sectionContainer d-flex justify-content-center mb-5 w-100">
+                      <div class="d-flex-col section section-active w-100"  id="csvSection">
+
+                        <div class="modalBtnConainer d-flex justify-content-center gap-3">
+                          <button class="btn btn-success" onclick="openModal('CSVInstructionModal')">Show
+                            Instructions</button>
+                          <a href="/admin/exams/sampleCSV" target="_blank" class="btn btn-outline-warning "
+                            onclick="changeBtnText(event,'Downloading Started','Download Sample CSV')">Download
+                            Sample
+                            CSV</a>
+                          <button class="btn btn-warning" onclick="openModal('CSVFormatModal')">Show CSV Format</button>
+                        </div>
+                        <div class="modal" tabindex="-1" role="dialog" id="CSVFormatModal">
+                          <div class="myModalContainer modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-body d-flex justify-content-center">
+                                <table class="table table-dark table-striped  mt-1" id="csvFormatTable">
+                                  <thead>
+                                    <tr>
+                                      <th colspan="10" class="fs-6 text-center">CSV file Structure</th>
+                                    </tr>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">QUESTION TEXT</th>
+                                      <th scope="col">DIFFICULTY</th>
+                                      <th scope="col">TOPIC</th>
+                                      <th scope="col">OPTION_1</th>
+                                      <th scope="col">OPTION_2</th>
+                                      <th scope="col">OPTION_3</th>
+                                      <th scope="col">OPTION_4</th>
+                                      <th scope="col">RIGHT_OPTION_NUMBER (1 or 2 or 3 or 4)</th>
+                                      <th scope="col">SCORE(1-5)</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td scope="row">1</td>
+                                      <td scope="col" colspan="9">insert from here</td>
+                                    <tr class="text-center">
+                                      <td scope="col" colspan="10">
+                                        <a href="/admin/exams/sampleCSV" target="_blank"
+                                          class="btn btn-outline-warning "
+                                          onclick="changeBtnText(event,'Downloading Started','Download Sample CSV')">Download
+                                          Sample
+                                          CSV</a>
+                                      </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                      <td scope="col" colspan="10">
+                                        <button type="button" class="btn btn-secondary"
+                                          onclick="closeModal('CSVFormatModal')"
+                                          id="CSVFormatModalCloseBtn">Close</button>
+                                      </td>
+
+                                    </tr>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-center " id="errorContainer">
+                        </div>
+                        <div class="d-flex">
+                          <div class="d-flex mt-5 topicsTableContainer">
+                            <table class="table table-dark table-striped  w-50 mx-2 " id="topicFormatTable">
+                              <thead>
+                                <tr>
+                                  <th colspan="10" class="fs-4 text-center">Topics</th>
+                                </tr>
+                              </thead>
+                            </table>
+                            <table class="table table-dark table-striped  w-50 mx-2 " id="difficltyFormatTable">
+                              <thead>
+                                <tr>
+                                  <th colspan="10" class="fs-4 text-center">Difficulties </th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+
+                          <div id="uploadCSVInputContainer"
+                            class="mt-5  text-center border border-dark rounded p-5 w-100 ">
+                            <form id="CSVForm" method="post" enctype="multipart/form-data" style="width: 25rem;">
+                              <label for="formFileLg" class="form-label fs-4">Select CSV file</label>
+                              <input type="hidden" name="examid" value="">
+                              <input class="form-control form-control-lg bg-dark text-white" id="fileInput" name="csv"
+                                type="file" accept=".csv" />
+                              <div class="btnContainer">
+                                <button type="button" class="btn fs-5 mt-4 btn-sm btn-dark sectionBtn   view preview"
+                                  onclick="previewCSV(event)" id="showPreviewCSVBtn">Show Preview</button>
+                                <button type="button" class="btn fs-5 mt-4 btn-sm btn-danger sectionBtn "
+                                  onclick="removeCSV()">Remove</button>
+                                <button type="button" class="btn fs-5 mt-4 btn-sm btn-success sectionBtn "
+                                  onclick="openModal('csvConfirmSubmitModal')">Submit</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="overflow-auto">
+                          <table class="table   mt-1 previewTable" id="data">
+                            <tbody id='table-body'>
+                              <pre id="previewNote">CSV File preview will appear here</pre>
+                              <!-- Generate the csv table rows here -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="d-flex-col section " id="manuallyAddSection">
+                        <form onsubmit="return false">
+                          <div id="questionContainer" class=" mt-5  d-flex-col flex-dir-col-gap-1">
+                            <div class="question border border-dark  rounded p-4 flex-dir-col-gap-1" id="question-1">
+                              <div class="form-group ">
+                                <div class="que-head">
+                                  <label for="question-1 " class="fs-4">Question <span class="indexSpan">1</span>
+                                  </label>
+                                  <div class="selectContainer">
+                                    <select class="form-select select-topic" id="select-topic-1" name="topic-1"
+                                      aria-label="Default select example" onchange="removeErrByEvent(event)">
+                                      <option disabled selected value>Select Topic</option>
+                                    </select>
+                                  </div>
+                                  <div class=" selectContainer">
+                                    <select class="form-select select-difficulty" id="select-difficulty-1"
+                                      name="difficulty-1" aria-label="Default select example"
+                                      onchange="removeErrByEvent(event)">
+                                      <option disabled selected value>Select Difficulty
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <div class="scoreInputContainer d-flex align-items-center gap-2 ">
+                                    <label class="form-check-label " for="score-1">Marks(score)</label>
+                                    <div class="d-flex flex-column align-items-center">
+                                      <input type="number" class="form-control queScore smallInput"
+                                        id="formGroupScoreInput" placeholder="Score" name="scoreInput-1" value="1">
+                                      <small id="emailHelp" class="form-text text-muted">Score from 1-5</small>
+                                    </div>
+                                  </div>
+                                  <button type="button" class=" btn  btn-danger removeBtn"
+                                    onclick="removeQuestion(1)">Remove</button>
+                                </div>
+                                <div>
+                                  <div>
+
+                                    <textarea type="text" class="form-control queInput " placeholder="Question Body"
+                                      name="questionInput-1" spellcheck="true"></textarea>
+                                    <small class="form-text text-muted">Length of question must be less
+                                      than
+                                      1000
+                                      characters.</small>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-check d-flex align-items-center gap-2">
+                                <input class="form-check-input" type="radio" name="optionRadios-1" id="optionRadios-1"
+                                  value="1" checked>
+                                <label class="form-check-label " for="optionRadios-1-1">
+                                </label>
+                                <div>
+                                  <input type="text" name="optionInput-1-1" class="form-control optionInput"
+                                    placeholder="Question option" spellcheck="true">
+                                  <small id="emailHelp" class="form-text text-muted">Length of option must be less than
+                                    255
+                                    characters.</small>
+                                </div>
+                              </div>
+                              <div class="form-check d-flex align-items-center gap-2">
+                                <input class="form-check-input" type="radio" name="optionRadios-1" id="optionRadios-1"
+                                  value="2">
+                                <label class="form-check-label " for="optionRadios-1-2">
+                                </label>
+                                <div>
+
+                                  <input type="text" name="optionInput-1-2" class="form-control optionInput"
+                                    placeholder="Question option" spellcheck="true">
+                                  <small id="emailHelp" class="form-text text-muted">Length of option must be less than
+                                    255
+                                    characters.</small>
+                                </div>
+                              </div>
+                              <div class="form-check d-flex align-items-center gap-2">
+                                <input class="form-check-input" type="radio" name="optionRadios-1" id="optionRadios-1"
+                                  value="3">
+                                <label class="form-check-label " for="optionRadios-1-3">
+                                </label>
+                                <div>
+                                  <input type="text" name="optionInput-1-3" class="form-control optionInput"
+                                    placeholder="Question option" spellcheck="true">
+                                  <small id="emailHelp" class="form-text text-muted">Length of option must be less than
+                                    255
+                                    characters.</small>
+                                </div>
+
+                              </div>
+                              <div class="form-check d-flex align-items-center gap-2">
+                                <input class="form-check-input" type="radio" name="optionRadios-1" id="optionRadios-1"
+                                  value="4">
+                                <label class="form-check-label " for="optionRadios-1-4">
+                                </label>
+                                <div>
+                                  <input type="text" name="optionInput-1-4" class="form-control optionInput"
+                                    placeholder="Question option" spellcheck="true">
+                                  <small id="emailHelp" class="form-text text-muted">Length of option must be less than
+                                    255
+                                    characters.</small>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          <input type="button" class="btn btn-outline-dark mt-2 fs-4 w-100"
+                            onclick="addQuestionBodyDiv()" value="+Add More" />
+                          <input type="submit" class="btn btn-success mt-2 fs-4 w-100" onclick="submitQuestions()"
+                            value="Submit" />
+                        </form>
+                      </div>
+                    </div>
+                  </main>
+                </div>
+
+
+
+                <!-- Modal -->
+
+                <div class="modal" tabindex="-1" role="dialog" id="CSVInstructionModal">
+                  <div class="myModalContainer modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body p-3 ">
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-dark">File size Limit
+                            <span>1MB</span>
+                          </li>
+                          <li class="list-group-item list-group-item-dark">Data will be considered from
+                            Row 2
+                          </li>
+                          <li class="list-group-item list-group-item-dark">Length of Question text must be less than
+                            <b>1000</b> characters including whitespace
+                          </li>
+                          <li class="list-group-item list-group-item-dark">Length of Optinons text must be less than
+                            <b>255</b> characters including whitespace
+                          </li>
+                          <li class="list-group-item list-group-item-dark">Score must be between <b>1-5</b></li>
+                          <li class="list-group-item list-group-item-dark">Difficulties and topics must be from given
+                            table </li>
+                        </ul>
+                        <button type="button" class="btn btn-secondary mt-4" onclick="closeModal('CSVInstructionModal')"
+                          id="CSVInstructionModalCloseBtn">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal  " id="insertQuestionConflictModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Insert Question Error </h5>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-danger" role="alert">
+                          <h4 class="alert-heading">Total Marks Not matched!</h4>
+                          <p>If we insert This questions then there are conflicts in total marks of exam</p>
+                          <hr>
+                          <p>To change that either insert again and match the total marks to <span
+                              id="modalTotalMarks"></span>
+                          </p>
+                          <p>Or update total marks of exam to <span id="modalNewTotalMarks"></span></p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <form action="" onsubmit="return false">
+                          <button type="button" class="btn btn-secondary"
+                            onclick="closeModal('insertQuestionConflictModal')">Match Here</button>
+                          <button type="button" class="btn btn-primary" onclick="openConfirmModal()"
+                            id="confirmBtn-insertConflict">Update Total
+                            Marks</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal" tabindex="-1" role="dialog" id="confirmModal">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body d-flex justify-content-center">
+                        <p>Confirm Update</p>
+                        <label class="form-check-label " for="updatedPassingMarks">Passing Marks(score)</label>
+                        <input type="number" class="form-control queScore smallInput" id="updatedPassingMarks"
+                          placeholder="Passing Marks" name="updatedPassingMarks" value="">
+                      </div>
+                      <div class="modal-footer">
+                        <form action="" onsubmit="return false">
+                          <button type="button" class="btn btn-secondary"
+                            onclick="closeModal('confirmModal')">Close</button>
+                          <button type="submit" class="btn btn-primary" onclick="updateExamTotal('csv')"
+                            id="submitFormWithPassingMarksBtn">Confirm Update
+                            Details</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="width: 5rem;" id="loadingSvg">
+                  <radialGradient id="a12" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)">
+                    <stop offset="0" stop-color="#FF156D"></stop>
+                    <stop offset=".3" stop-color="#FF156D" stop-opacity=".9"></stop>
+                    <stop offset=".6" stop-color="#FF156D" stop-opacity=".6"></stop>
+                    <stop offset=".8" stop-color="#FF156D" stop-opacity=".3"></stop>
+                    <stop offset="1" stop-color="#FF156D" stop-opacity="0"></stop>
+                  </radialGradient>
+                  <circle transform-origin="center" fill="none" stroke="#002f4b" stroke-width="15"
+                    stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70">
+                    <animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0"
+                      keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite">
+                    </animateTransform>
+                  </circle>
+                  <circle transform-origin="center" fill="none" opacity=".2" stroke="#FF156D" stroke-width="15"
+                    stroke-linecap="round" cx="100" cy="100" r="70"></circle>
+                </svg>
+
+                <%- include("loadingComponent",{id:'fileUploadingModal',text:'uploading'}) %>
+                  <%- include("loadingComponent",{id:'loadingModal',text:'loading'}) %>
+
+                    <%- include("loadingComponent",{id:'submitLoadingModal', text:'submitting'}) %>
+
+
+                      <%- include("errorMsgModal",{ id : 'errorMsgModal' ,message : "Fill details correctly" }) %>
+                        <%- include("errorMsgModal",{ id : 'fileValidationModal' ,message : "File size is too big" }) %>
+
+                          <%- include("confirmModal",{ id : 'redirectingModal' , confirmationMsg
+                            : 'Questions inserted , redirecting to view all exams' , onclick
+                            : "window.location='/admin/students/allexamspage'" , submitBtnText : "redirect" }) %>
+
+
+                            <%- include("confirmModal",{ id : 'redirectingToUpdateModal' , confirmationMsg
+                              : 'Confirm Redirecting to update page' , onclick : 'redirectingToUpdate()' ,submitBtnText
+                              : "redirect" }) %>
+
+
+                              <%- include("confirmModal",{ id : 'csvConfirmSubmitModal' , confirmationMsg
+                                : 'Confirm Submission' , onclick : 'uploadCSV()' ,submitBtnText : "submit" }) %>
+
+                                <script src="/js/addQuestions.js"></script>
+                                <% } %>
+      </div>
+  </div>
+
+</body>
+<script>
+  ids("navBarStatus").innerHTML = "Add Questions";
+</script>
+<script src="/socket.io/socket.io.js"></script>
+</html>

@@ -1,0 +1,86 @@
+body {
+  background: #f8f8f8;
+}
+.container {
+  width: 850px;
+  height: 660px;
+  background: #fff;
+  margin: 80px auto;
+  box-shadow: 0 5px 15.83px .15px #002f4b;
+}
+.signup-content {
+  display: flex;
+  padding: 20px 0;
+}
+.signup-form {
+  margin-left: 90px;
+}
+.form-title {
+  margin-bottom: 30px;
+  color: #002f4b;
+}
+
+.form-group {
+  position: relative;
+  align-items: center;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  top: 11%;
+  color: #222;
+}
+input[type=text] ,input[type=password], input[type=date]{
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #002f4b;
+  padding: 6px 30px;
+  font-family: Poppins;
+  outline: none;
+  font-size: 15px;
+}
+.signup-image{
+  width: 40%;
+}
+figure{
+  margin: 70px 40px;
+}
+#signupImage{
+  width: 330px;
+  position: sticky;
+}
+#signupButton{
+  width: 300px;
+  margin-top: 10px;
+  background-color: #002f4b;
+}
+a{
+  text-decoration: none;
+  color: #002f4b;
+}
+#signin{
+  margin-left: 30px;
+ 
+}
+.icons{
+  color: #002f4b;
+}
+::placeholder{
+  color: #002f4b;
+  opacity: 0.5;
+}
+.error{
+  color: red;
+  font-size: 11px;
+  max-width: 300px;
+}
+
+.DOB{
+ padding-left: 20px;
+ margin-bottom: -15px;
+}
+
+#doberror{
+  margin-top: 5px;
+}

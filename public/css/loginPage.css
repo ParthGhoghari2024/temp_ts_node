@@ -1,0 +1,83 @@
+body {
+  background: #f8f8f8;
+}
+
+.container {
+  width: 850px;
+  height: 600px;
+  background: #fff;
+  margin: 90px auto;
+  box-shadow: 0 5px 15.83px  #002f4b;
+}
+.signin-content {
+  display: flex;
+  padding: 30px 0;
+}
+.signin-form {
+  margin-left: 90px;
+}
+
+.form-title {
+  margin-top: 90px;
+  margin-bottom: 33px;
+  color: #002f4b;
+}
+/* .register-form {
+  width: 100%;
+} */
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  color: #222;
+}
+
+input[type=text] ,input[type=password]{
+  width: 300px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px;
+  font-family: Poppins;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 15px;
+}
+.signin-image{
+  width: 40%;
+}
+figure{
+  margin: 70px 80px;
+}
+#signinImage{
+  width: 330px;
+}
+#signinButton{
+  width: 300px;
+  background-color: #002f4b;
+}
+
+#forgotPassword{
+  margin-left: 175px;
+  font-size: 15px;
+}
+#signup{
+  margin-left: 45px;
+  font-size: 15px;
+}
+a{
+  text-decoration: none;
+  color: #002f4b;
+}
+.icons{
+  color: #002f4b;
+}
+::placeholder{
+  color: #002f4b;
+}

@@ -1,0 +1,19 @@
+<div class="d-flex flex-column align-items-center  ">
+  <main class="d-flex  flex-column align-items-center justify-content-center  ">
+    <div class="card d-flex align-items-center">
+      <h5 class="card-header text-danger">
+        <%= headerText %>
+      </h5>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= shortErroMsg %>
+        </h5>
+        <p class="card-text">
+          <%= errorDesc %>
+        </p>
+        <a href="/admin/exams/questions/view?examid=<%= examId %>" class="btn btn-warning">View Questions </a>
+        <a href="/admin/students/allexamspage" class="btn btn-success">Go To Exams</a>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,81 @@
+<div class="dashboard">
+    <div class="examRow">
+      <div id="todayExamCount" class="card" style="background: #FF407D;" onclick="showOngoingExamData()">
+        <p>Ongoing Exam</p>
+        <p >4</p>
+      </div>
+      <div id="upcomingExamCount" class="card" style="background-color: #BC7AF9;" onclick="showUpcomingExamData()">
+        <p>Upcoming Exam</p>
+        <p>5</p>
+      </div>
+      <div id="missedExamCount" class="card" style="background-color: #176B87;" onclick="showMissedExamData()">
+      <p>Missed Exams</p>
+      <p>10</p>
+    </div>
+    <div id="givenExamCount" class="card"  style="background-color: #f9a52c;" onclick="showGivenExamData()">
+        <p>Given Exam</p>
+        <p>1</p>
+      </div>
+    </div>
+    <div class="popup" id="popup">
+      <div class="head">Exam1</div>
+      <div class="body">
+        <p>Enter Activation Code</p>
+        <form action="">
+          <input type="text" id="activation-code"  name="activationCode">
+          <input type="text" id="examRowId" value="" hidden>
+          <div id="errorMsg"></div>
+          <div class="control-button">
+            <a  class="btn btn-dark" onclick="hide('popup')">Cancel</a>
+            <a class="btn btn-warning" onclick="checkCode(id)" >Enter</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="popup" id="invalidPopup">
+      <div class="body">
+        <span class="text-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 cross-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m18 18 12 12m0-12-12 12M42 24a18 18 0 1 1-36 0 18 18 0 0 1 36 0Z" />
+          </svg>
+        </span>
+        <p>Invalid Activation Code</p>
+            <div class="control-button">
+
+            <a class="btn btn-danger" onclick="backToPopup()" >OK</a>
+          </div>
+
+      </div>
+    </div>
+    <div class="examtable">
+      <div class="infoSectionRow">
+        <div class="searchBox ">
+          <input type="text" name="search" id="searchExam" placeholder="Search Exam by Title"><i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div id="examStatus" ></div>
+        <div class="pagination" style="visibility: hidden;">
+          <a onclick="firstPage()"><i class="fa-solid fa-backward"></i></a>
+          <a onclick="previousPage()" ><i class="fa-solid fa-backward-step"></i></a>
+          <a onclick="nextPage()"><i class="fa-solid fa-forward-step"></i></a>
+          <a onclick="lastPage()" ><i class="fa-solid fa-forward"></i></a>
+        </div>
+      </div>
+      <table >
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Start Exam</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        
+        </tbody>
+      </table>
+    </div>
+  </div>

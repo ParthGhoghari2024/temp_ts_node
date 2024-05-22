@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Questions</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/css/updateQuestions.css">
+
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+</head>
+
+<body>
+  <div class="containerr final">
+    <%- include('sidebar'); %>
+      <div class=" main " id="main">
+        <%- include('navbar',{id:id}); %>
+          <div class="mt-5 d-flex flex-column align-items-center ">
+            <main class="d-flex  flex-column align-items-center  border ">
+              <div class="card mt-5 w-75 ">
+                <h3 class="text-center card-header  text-white" style="background: #002f4b;">Exam Details</h1>
+                  <h5 class="card-header text-success">Exam Title: <%= examData.title %>
+                      <h5 class="card-header">Created By: <%= examData.fname %>&nbsp; <%= examData.lname %>
+                      </h5>
+                      <div class="card-body">
+                        <p class="card-text"><b>Total Marks : </b> <%= examData.total_marks %>
+                        </p>
+                        <p class="card-text"><b>Passing Marks :  </b> <%= examData.passing_marks %>
+                        </p>
+                        <p class="card-text" ><b>Exam Start time : </b><span id="exam-time"><%= examData.start_time %>
+                        </span></p>
+                        <p class="card-text"><b>Exam Durations :  </b> <%= examData.duration_minute %> Minutes
+                        </p>
+                        <p class="card-text"><b>Exam Instructions :  </b> <%= examData.instructions %>
+                        </p>
+                      </div>
+              </div>
+              <h3 class="mt-5 text-center fs-2 text-success">View Questions</h3>
+              <% if(data.id.length===0) {%>
+                <h4>No questions to view, Add it </h4>
+                <% } %>
+
+                  <div class="d-flex-col section mb-5">
+                    <button type="button" class="btn btn-dark" onclick="openRedirectModal('add')">
+                      Add Questions
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="openRedirectModal('update')">
+                      Update Questions
+                    </button>
+                    <form id="tempQuestionsForm" onsubmit="return false">
+                      <div id="questionContainer" class=" mt-5  d-flex-col flex-dir-col-gap-1">
+
+                        <!-- data is single object containing array like
+                    id []
+                    option-1 []
+                    option-2 [] -->
+
+                        <% for(var i=0;i<data.id.length;i++){ %>
+                          <div class="question border border-dark rounded p-4 flex-dir-col-gap-1"
+                            id="question-<%=i+1%>">
+                            <div class="form-group ">
+                              <div class="que-head">
+                                <label for="question-<%= i+1 %> " class="fs-4">Question <span>
+                                    <%= i+1 %>
+                                  </span> </label>
+                                <div class="selectContainer">
+
+                                  <select class="form-select select-topic" id="select-topic-<%= i+1 %>"
+                                    name="topic-<%= i+1 %>" aria-label="Default select example">
+                                    <!-- <option disabled selected value>Select Topic</option> -->
+                                    <% Object.keys(topics).forEach((topic)=>{ %>
+                                      <option value="<%= topic %>" <%=data.topic_id[i]===topics[topic]? 'selected' : ""
+                                        %>
+                                        >
+                                        <%= topic %>
+                                      </option>
+                                      <% }) %>
+                                  </select>
+                                </div>
+                                <div class="selectContainer">
+
+                                  <select class="form-select select-difficulty" id="select-difficulty-<%= i+1 %>"
+                                    name="difficulty-<%= i+1 %>" aria-label="Default select example">
+                                    <!-- <option disabled selected value>Select Difficulty</option> -->
+                                    <% Object.keys(difficulties).forEach((difficulty)=>{ %>
+                                      <option value="<%= difficulty %>"
+                                        <%=data.difficulty_id[i]===difficulties[difficulty]? 'selected' : "" %>>
+                                        <%= difficulty %>
+                                      </option>
+                                      <% }) %>
+                                  </select>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                  <label class="form-check-label " for="score-<%= i+1 %>">Marks(score)</label>
+                                  <div>
+                                    <input type="number" class="form-control queScore smallInput"
+                                      id="formGroupScoreInput" placeholder="Score" name="scoreInput-<%= i+1 %>"
+                                      value="<%= data.score[i] %>">
+                                  </div>
+
+                                </div>
+                              </div>
+                              <div class="que-text">
+                                <%= data.questions[i] %>
+                              </div>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input type="hidden" name="optionId-<%= i+1 %>-1"
+                                value="<%= options[data.id[i]][0].id %>">
+                              <input class="form-check-input" type="radio" name="optionRadios-<%= i+1 %>"
+                                id="optionRadios-<%= i+1 %>" value="1" <%=options[data.id[i]][0].isAnswer===1?'checked'
+                                : '' %>
+                              >
+                              <label class="form-check-label " for="optionRadios-<%= i+1 %>-1">
+                              </label>
+                              <input type="text" name="optionInput-<%= i+1 %>-1" class="form-control optionInput"
+                                id="formGroupExampleInput" placeholder="Question option"
+                                value="<%= options[data.id[i]][0].option_value %>">
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input type="hidden" name="optionId-<%= i+1 %>-2"
+                                value="<%= options[data.id[i]][1].id %>">
+                              <input class="form-check-input" type="radio" name="optionRadios-<%= i+1 %>"
+                                id="optionRadios-<%= i+1 %>" value="2" <%=options[data.id[i]][1].isAnswer===1?'checked'
+                                : '' %>>
+                              <label class="form-check-label " for="optionRadios-<%= i+1 %>-2">
+                              </label>
+                              <input type="text" name="optionInput-<%= i+1 %>-2" class="form-control optionInput"
+                                id="formGroupExampleInput" placeholder="Question option"
+                                value="<%= options[data.id[i]][1].option_value %>">
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input type="hidden" name="optionId-<%= i+1 %>-3"
+                                value="<%= options[data.id[i]][2].id %>">
+                              <input class="form-check-input" type="radio" name="optionRadios-<%= i+1 %>"
+                                id="optionRadios-<%= i+1 %>" value="3" <%=options[data.id[i]][2].isAnswer===1?'checked'
+                                : '' %>>
+                              <label class="form-check-label " for="optionRadios-<%= i+1 %>-3">
+                              </label>
+                              <input type="text" name="optionInput-<%= i+1 %>-3" class="form-control optionInput"
+                                id="formGroupExampleInput" placeholder="Question option"
+                                value="<%= options[data.id[i]][2].option_value %>">
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-2">
+                              <input type="hidden" name="optionId-<%= i+1 %>-4"
+                                value="<%= options[data.id[i]][3].id %>">
+                              <input class="form-check-input" type="radio" name="optionRadios-<%= i+1 %>"
+                                id="optionRadios-<%= i+1 %>" value="4" <%=options[data.id[i]][3].isAnswer===1? 'checked'
+                                : '' %>>
+                              <label class="form-check-label " for="optionRadios-<%= i+1 %>-4">
+                              </label>
+                              <input type="text" name="optionInput-<%= i+1 %>-4" class="form-control optionInput"
+                                id="formGroupExampleInput" placeholder="Question option"
+                                value="<%= options[data.id[i]][3].option_value %>">
+                            </div>
+                          </div>
+                          <% } %>
+                      </div>
+                    </form>
+
+                  </div>
+            </main>
+          </div>
+      </div>
+  </div>
+  <div class="modal p-4 fs-4" tabindex="-1" role="dialog" id="redirectingModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body d-flex flex-column text-center justify-content-center">
+          <p>Confirm Redirection</p>
+          <div>
+            <button type="button" class="btn btn-dark" onclick="closeModalById('redirectingModal')">Cancel</button>
+            <button type="button" class="btn btn-success" id="redirectBtn"
+              onclick="window.location = '/admin/exams/updatequestions?examid=<%= examId  %>'">Redirect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- to get ejs variable in external js File -->
+  <script>let examId = '<%= examId %>';
+    let dateTimeString = document.getElementById("exam-time").innerHTML
+    const offset = new Date().getTimezoneOffset()
+    dateTimeString = new Date(dateTimeString).getTime() - (offset * 60 * 1000)
+    const timeString = new Date(dateTimeString).toLocaleTimeString()
+    const dateString = new Date(dateTimeString).toLocaleDateString('fr-CA', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    document.getElementById("exam-time").innerHTML = dateString + " " + timeString
+  </script>
+  <script src="/js/viewQuestions.js"></script>
+</body>
+<script>
+  ids("navBarStatus").innerHTML = "View Questions";
+</script>
+
+</html>

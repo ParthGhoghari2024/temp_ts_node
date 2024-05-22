@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  flex: 1 0 10%;
+  width: 15% !important;
+}
+
+#headerText {
+  color: #002f4b;
+}
+
+.form-control {
+  width: 20rem;
+}
+
+label {
+  width: 15rem !important;
+  display: flex;
+  justify-content: end;
+}
+
+#createExamForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  box-shadow: 2px 2px 5px black;
+}
+
+.invalid-feedback {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+#submitBtn {
+  width: 5rem;
+}
+
+.modal-content {
+  padding: 2rem 2rem 1rem 2rem;
+  font-size: 1.5rem;
+}
+
+.main main {
+  padding-bottom: 40px;
+}
+
+.aside-row {
+  background-color: #002f4b;
+  color: #e9ecef;
+}
+
+#createExamRoute {
+  background-color: #e9ecef;
+  color: #002f4b;
+}
+.form-control{
+  border-width: 2px !important;
+}

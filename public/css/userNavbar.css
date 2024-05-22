@@ -1,0 +1,136 @@
+nav {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.178);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+
+
+
+.tab ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 20px;
+    align-items: center;
+    margin: 0;
+}
+
+.tab ul li a {
+    border: 1px solid;
+    color: rgb(73, 72, 72);
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#currentTime {
+    font-size: 22px;
+}
+
+.tab ul li a:hover {
+    color: white;
+    background-color: black;
+    transition: 0.3s;
+}
+
+.cross-icon {
+    width: 140px;
+    margin: auto;
+    display: block;
+}
+
+.notification {
+    position: relative;
+}
+
+#notificationsCount {
+    position: absolute;
+    font-size: 13px;
+    bottom: 15px;
+    left: 5px;
+    background-color: #f86c6b;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    color: white;
+    padding: 5px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+#notifications {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.notification-description {
+    width: 350px;
+    background-color: white;
+    position: absolute;
+    color: red;
+    border: 1px solid #969ea5;
+    right: 266px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.notification-header {
+    height: 35px;
+    color: white;
+    background-color: #002f4b;
+    text-align: center;
+    padding-top: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    gap: 105px;
+}
+
+#notification-content {
+    color: grey;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#notification-heading {
+    margin-left: 120px;
+}
+
+.closeButton {
+    font-size: 22px;
+}

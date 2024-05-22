@@ -1,0 +1,211 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.main{
+  margin: 35px auto;
+  width: 1150px;
+  /* background-color: aquamarine; */
+}
+
+#scoreCardTitle{
+  margin-top: 10px;
+}
+
+.examTitle{
+  background-color: #002f4b;
+  color: white;
+  margin: 5px auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.examTitleInfo{
+  width: 950px;
+  margin: 20px;
+}
+
+.userImage{
+  border-radius: 100px; 
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+ }
+
+.examName{
+  margin: 14px;
+}
+
+.examInfo{
+  /* background-color: blueviolet; */
+  display: flex;
+  text-align: center;
+  margin: 18px auto;
+  align-items: center;
+  font-weight: bold;
+
+  width: 1100px;
+}
+.examInfo p{
+  margin: 0 auto;
+}
+
+.scoreInfo{
+  /* background-color: aqua; */
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 800px;
+}
+
+.scoreInfo p {
+  /* margin: 20px 5px 20px 0px; */
+  margin: 20px auto;
+}
+
+.obtainMarks{
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.totalMarks{
+  font-weight: bolder;  
+  font-size: 18px;
+}
+
+.status{
+  font-weight: bolder;
+  font-size: 25px;
+  margin: 10px;
+  color: #1c9e1c;
+}
+
+#name{
+  margin: 4px 8px 6px 8px;
+}
+
+
+.examProfileInfo{
+  margin-top: 8px;
+}
+
+
+/* for circles */
+
+
+@property --progress-value {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes progress { to { --progress-value : 50; } }
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 29px;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(#002f4b calc(var(--progress-value) * 1%), #b3def7 0);
+  animation: progress 2s 1 forwards;
+}
+
+.progress-bar::before {
+  counter-reset: percentage var(--progress-value);
+  content: counter(percentage) '%';
+  animation: progress 2s 1 forwards;
+}
+
+
+.marks{
+  margin: 70px auto;
+}
+
+.adv{
+  font-weight: bolder;
+  background-color: #002f4b;
+  border-radius:7px;
+  padding: 7px;
+  color: white;
+  font-size: 21px;
+  width: 300px;
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+.adv:hover{
+  background-color: #075e91;
+}
+
+.buttonsBottom{
+  display: flex;
+  margin: 20px;
+}
+
+#footerDiv{
+  background-color: #002f4b;
+  width: 1150px;
+  height: 70px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.footerText{
+  font-weight: bolder;
+  background-color: #002f4b;
+  border-radius:7px;
+  padding: 22px;
+  color: white;
+  font-size: 21px;
+  width: 300px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+
+.flex-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15%;
+  padding: 25px 50px;
+}
+a{
+  text-decoration: none;
+}
+
+
+/*  for results */
+.scoreTableResult{
+  margin: 10px auto;
+  width: 750px;
+  text-align: center;
+}
+
+table{
+  border-collapse: collapse;
+  width: 750px;
+  margin: 30px auto;
+}
+.thead{
+  color: white;
+  background-color: #002f4b;
+  border: 1px solid #002f4b;
+}
+.thead th, td{
+  padding: 10px 25px;
+  font-size: 21px;
+}
+.tbodyScore tr{
+  border: 1px solid;
+}

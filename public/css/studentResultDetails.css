@@ -1,0 +1,86 @@
+body {
+  font-size: 0.875rem;
+}
+
+.headers {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+
+
+#paggingLink-prev {
+  padding: 10px;
+}
+
+#paggingLink-next {
+  padding: 10px;
+}
+
+.paginationController {
+  margin-left: 40%;
+  margin-top: -20px;
+}
+
+.dropdown {
+  margin-bottom: 30px;
+}
+
+.hide {
+  display: none;
+}
+
+#paggingLink-prev {
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  background-color: #002f4b;
+}
+
+#paggingLink-prev:hover {
+  border-radius: 15px;
+  color: #002f4b;
+  background-color: white;
+  border: 3px solid #002f4b;
+}
+
+#paggingLink-next {
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  background-color: #002f4b;
+}
+
+#paggingLink-next:hover {
+  border-radius: 15px;
+  color: #002f4b;
+  background-color: white;
+  border: 3px solid #002f4b;
+}
+
+.main-content {
+  margin-left: -220px;
+}
+
+#norecordsfound {
+  text-align: center;
+  color: red;
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.bigfont {
+  font-size: 18px;
+  background-color: aliceblue;
+}
+
+.gridBtn {
+  padding: 5px 5px;
+  border: 1px soild white;
+  border-radius: 5px;
+  color: white;
+  background-color: #002f4b;
+}

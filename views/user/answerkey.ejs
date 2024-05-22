@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result</title>
+  <style>
+    html {
+      -webkit-print-color-adjust: exact;
+    }
+
+    @media print {
+      *{
+        margin: 0; padding: 0; text-align: center;
+      }
+    }
+
+    .main {
+      margin: 35px auto; width: 1150px;
+    }
+
+    .examTitle{
+      background-color: #002f4b; color: white; margin: 5px auto; display: flex; box-sizing: border-box;
+    }
+    
+    .examTitleInfo{
+      width: 1150px; margin: 20px;
+    }
+
+    html,
+    body {
+      width: 210mm;
+      height: 297mm;
+    }
+
+    .page {
+      margin: 0;
+      border: initial;
+      border-radius: initial;
+      width: initial;
+      min-height: initial;
+      box-shadow: initial;
+      background: initial;
+      page-break-after: always;
+    }
+    
+    #scoreCardTitle{
+      margin-top: 10px;
+    }
+    
+    #examName{
+      margin: 14px;
+    }
+
+    .examProfileInfo{
+      margin-top: 8px;
+    }
+
+    .userImage{
+      border-radius: 100px;  width: 80px; height: 80px; margin: 10px;
+    }
+
+    #name{
+      margin: 4px 8px 6px 8px;
+    }
+
+    .examInfo{
+      display: flex; text-align: center; margin: 18px auto; align-items: center; font-weight: bold; width: 1100px;
+    }
+
+    .examInfo p {
+      margin: 0 auto;
+    }
+    /* for progress bar css */
+    .marks{
+      margin: 70px auto;
+    }
+
+    #progrossId{
+      visibility:hidden;height:0;width:0;
+    }
+
+    .scoreInfo{
+      margin: 0 auto; display: flex; text-align: center; align-items: center; width: 800px;
+    }
+
+    .obtainMarks{
+      margin: 20px auto; font-weight: bolder; font-size: 30px;
+    }
+
+    .totalMarks{
+      font-weight: bolder; font-size: 18px;
+    }
+
+    .status{
+      font-weight: bolder; font-size: 25px; margin: 10px; color: #0e689c;
+    }
+    .buttonsBottom{
+      display: flex; margin: 20px;
+    }
+    .adv{
+      font-weight: bolder;
+      background-color: #002f4b;
+      border-radius:7px;
+      padding: 7px;
+      color: white;
+      font-size: 21px;
+      width: 300px;
+      margin: 30px auto;
+      cursor: pointer;
+    }
+    #footerDiv{
+      background-color: #002f4b; width: 1150px; height: 70px; align-items: center; margin: 0 auto;
+    }
+    .footerText{
+      font-weight: bolder; background-color: #002f4b; border-radius:7px; padding: 22px;color: white; font-size: 21px; width: 300px; margin: 10px auto; cursor: pointer;
+    }
+    @property --progress-value {
+      syntax: "<integer>";
+      initial-value: 0;
+      inherits: false;
+    }
+
+    @keyframes progress {
+      to { --progress-value: <%= (result[0].marks * 100)/result[0].total_marks %>}
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bolder;
+      font-size: 29px;
+
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background:
+        radial-gradient(closest-side, white 79%, transparent 80% 100%),
+        conic-gradient(#002f4b calc(var(--progress-value) * 1%), #b3def7 0);
+      animation: progress 0s 1 forwards;
+    }
+
+    .progress-bar::before {
+      counter-reset: percentage var(--progress-value);
+      content: counter(percentage) '%';
+      animation: progress 0s 1 forwards;
+    }
+
+
+  </style>
+</head>
+<% if(locals.error){ %>
+  <%= error %>
+    <% } %>
+      <% if(locals.result){ %>
+
+        <body>
+          <noscript>
+            To Run this module you must trun on Java Script In Your Browser
+          </noscript>
+          <div class="main" >
+            <div class="examTitle">
+              <div class="examTitleInfo">
+                <h1 id="scoreCardTitle" >Score Card</h1>
+                <h2 class="examName" id="examName" >Exam Name: <span id="title">
+                    <%= locals.result[0].title %>
+                  </span></h2>
+                <h2>Name:<span id="fname">
+                    <%= result[0].fname %>
+                  </span>&#160<span id="lname">
+                    <%= result[0].lname %>
+                  </span></h2>
+              </div>
+        
+            </div>
+            <div class="examDatail">
+              <div class="examInfo">
+                <p class="eDate" id="eDate">Date: <span id="exam_date">
+                    <%= result[0].exam_date %>
+                  </span></p>
+                <p class="eDuration" id="eDuration">Duration: <%= result[0].duration_minute %>
+                    <span id="duration_minute"></span></p>
+                <p class="eExamId" id="examId">ExamId: examss<%= result[0].exam_id %> <span
+                      id="exam_id"></span></p>
+              </div>
+
+              <div class="progress-bar marks">
+                <progress id="progrossId" value="70" min="0" max="100"></progress>
+              </div>
+
+              <div class="scoreInfo">
+                <p class="obtainMarks"><span
+                    id="marks">
+                    <%= result[0].marks %>
+                  </span>/<span class="totalMarks" id="total_marks">
+                    <%= result[0].total_marks %>
+                  </span></p>
+              </div>
+              <p class="status" id="status">
+                <% if(result[0].marks>= result[0].passing_marks){ %>
+                  <%= "PASS" %>
+                    <% } else { %>
+                      <%= "FAIL" %>
+                        <% } %>
+              </p>
+            </div>
+
+            <div class="buttonsBottom">
+              <p class="adv" id="advanced">Advanced</p>
+              <p class="adv" id="download">Download</p>
+            </div>
+            <div id="footerDiv">
+              <p class="footerText">Thank You :)</p>
+            </div>
+          </div>
+        </body>
+        <% } else { %>
+          <%= "something went wrong!" %>
+            <% } %>
+
+</html>

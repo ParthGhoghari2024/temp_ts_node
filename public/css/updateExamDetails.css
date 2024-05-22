@@ -1,0 +1,114 @@
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  /* z-index: 100; */
+  left: 124%;
+  top : 10%;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 1000px;
+  padding: 80px; 
+  background-color: blue;
+  
+}
+
+.form-container input[type=file] {
+  margin-bottom: 25px;
+  background-color: rgb(214, 213, 213);
+}
+
+
+.form-container .upload {
+  background-color: #002f4b;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+}
+.form-container .cancel {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover {
+  opacity: 1;
+}
+
+.form-popup:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -2;
+}
+
+.form-popup:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
+#camera-icon  {
+  font-size: 16px;
+  position: absolute;
+  bottom: -6px;
+  right: 63px;
+  color: white;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 40px;
+  background: #002f4b;
+
+}
+
+.user-avatar{
+  position: relative;
+}
+
+#paggingLink-prev{
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  background-color: #002f4b;
+}
+#paggingLink-prev:hover{
+  border-radius: 15px;
+  color:   #002f4b;
+  background-color: white;
+  border: 3px solid #002f4b;
+}
+
+#paggingLink-next{
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  background-color: #002f4b;
+}
+
+#paggingLink-next:hover{
+  border-radius: 15px;
+  color:   #002f4b;
+  background-color: white;
+  border: 3px solid #002f4b;
+}

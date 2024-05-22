@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html>
+  <%- include("./userDashboardHead.ejs") %>
+  <style>
+    .aside-row {
+     background-color: #002f4b;
+     color: #e9ecef;
+   }
+
+   #profileRoute {
+     background-color: #e9ecef;
+     color: #002f4b;
+   }
+</style>
+  <body class="body">
+    <div class="dashboard-cont">
+      <%- include("./userComponent/userSideBar.ejs") %>
+      <div class="main">
+        <%- include("./userComponent/userNavBar.ejs") %>
+        <div class="userProfile">
+          <%- include("./userComponent/userProfileModule.ejs") %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/js/userProfile.js"></script>
+  <script>
+    ids('navigate-heading').innerHTML = "User Profile";
+  </script>
+  <script src="/js/blackWhite.js"></script>
+</html>

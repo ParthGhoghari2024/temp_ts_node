@@ -1,0 +1,29 @@
+
+
+<div class="results">
+  <!-- <div id="examStatus" class="examStatus">Results</div> -->
+  <div class="infoSectionRow">
+    <div id="results" class="resultStatusDiv"> 
+      <p class="searchBarP"><input type="text" id="searchBar" placeholder="Search Result"><i class="fa-solid fa-magnifying-glass" id="iconSearch"></i></p>
+    </div>
+    <div class="pagination">
+      <a onclick="firstPage()"><i class="fa-solid fa-backward"></i></a>
+      <a onclick="previousPage()" ><i class="fa-solid fa-backward-step"></i></a>
+      <a onclick="nextPage()"><i class="fa-solid fa-forward-step"></i></a>
+      <a onclick="lastPage()" ><i class="fa-solid fa-forward"></i></a>
+    </div>
+  </div>
+  <table class="resultTable">
+    <thead class="thead">
+      <th id="number">NO</th>
+      <th>Exam Id</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th id="result">Results</th>
+      <th id="action">Action</th>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+</div>
+<script src="/js/viewResult.js"></script>

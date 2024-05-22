@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add questions</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/sidebarNavbar.css" />
+  <link rel="stylesheet" href="/css/StudentsAnswerKey.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.5.2-web/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon_examIcon3.ico">
+
+  <style>
+    .radio-label {
+      font-weight: bold;
+    }
+
+    input[type="radio"]:checked+label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="containerr">
+    <div class="d-flex flex-column align-items-center w-100">
+      <main class="d-flex flex-column align-items-center border w-100">
+
+        <!-- ex start -->
+
+        <div class="examTitle">
+          <div class="examTitleInfo">
+            <h1 id="scoreCardTitle">Exam Review</h1>
+          </div>
+          <div class="examProfileInfo">
+            <a href="/user/userProfile"><img id="setImage" src="/assets/profileDefaultImage.jpg" class="userImage"
+                alt="profilePic"></a>
+            <p id="name"><span id="fname"></span>&#160<span id="lname"></span></p>
+          </div>
+        </div>
+
+
+        <!-- ex end -->
+
+
+
+
+        <div class="resultdetailscard">
+          <div class="container">
+            <h1><b>Answer Key</b></h1>
+            <p><b>Exam Name:- <%= resultData[0].exam_title %> </b></p>
+            <p>
+              <b>
+                Student Name:- <%= resultData[0].first_name %>
+                  <%= resultData[0].last_name %>
+              </b>
+            </p>
+            <p><b>Total Marks:- <%= resultData[0].total_marks %></b></p>
+            <p><b>Passing Marks:- <%= resultData[0].passingmarks %></b></p>
+            <p>
+              <b>Exam Start Time:- <span id="exam-time">
+                  <%= resultData[0].exam_start_time %></b>
+            </p>
+
+            <p>
+              <b>Exam Duration:- <%= resultData[0].exam_duration %>
+                  minutes</b>
+            </p>
+
+            <h5><b>Your Score Is:-<%=totalScore%> </b></h5>
+            <h5><b>Result:-<%=resultStatus%> </b></h5>
+          </div>
+        </div>
+        <% resultData.forEach((data,index)=> { %>
+
+
+          <div class="container">
+            <div class="d-flex-col section section-active" style="width: 55rem">
+              <div class="mt-5 d-flex-col flex-dir-col-gap-1">
+                <div class="flex-dir-col-gap-0" style="margin-left: -5px; margin-right: 230px">
+                  <div
+                    class="<%= data.user_answer_id == data.options_ids[data.correct_answers.indexOf(1)] ? 'correctanswer' : 'incorrectanswer' %>">
+                    <div class="questionsection">
+                      <h4>
+                        <b>Question <%= index + 1 %> :- </b>
+                        <%= data.question %> (Score: <%=data.score%>)
+                      </h4>
+                    </div>
+                    <div class="optionssection">
+                      <% data.options.forEach((option, index)=> { %>
+                        <div>
+                          <input type="radio" disabled <% if (data.user_answer_id===parseInt(data.options_ids[index])) {
+                            %>checked<% } %>>
+                            <label>
+                              <%= option %>
+                            </label>
+                        </div>
+                        <% }); %>
+                    </div>
+
+                    <div class="actualanswer">
+
+
+                      <p>
+                        <b>Correct Option:</b>
+                        <%= String.fromCharCode(65 + data.correct_answers.indexOf(1)) %>: <%=
+                            data.options[data.correct_answers.indexOf(1)] %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+            <div class="buttonsBottom">
+              <button><a href="/user/results" class="adv">
+                  <p id="advanced">Finish Review</p>
+                </a></button>
+            </div>
+      </main>
+    </div>
+  </div>
+  <script src="/js/answerKey.js"></script>
+  <script>
+    let dateTimeString = document.getElementById("exam-time").innerHTML
+    const offset = new Date().getTimezoneOffset()
+    dateTimeString = new Date(dateTimeString).getTime() - (offset * 60 * 1000)
+    const timeString = new Date(dateTimeString).toLocaleTimeString()
+    const dateString = new Date(dateTimeString).toLocaleDateString('fr-CA', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    document.getElementById("exam-time").innerHTML = dateString + " " + timeString
+    </script>
+</body>
+
+</html>

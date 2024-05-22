@@ -1,0 +1,89 @@
+.results{
+  max-width: 1520px;
+  width: 100% ;
+  margin: 100px auto;     
+  overflow:hidden;
+}
+
+.resultTable{
+  border-radius: 7px 7px 0 0 ;
+  /* width: 1528px; */
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.thead{
+  background-color: #002f4b;
+  color: white;
+}
+td, th {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+
+.infoSectionRow{
+  padding-left: 0;
+}
+
+
+.searchBarP{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1px;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#iconSearch{
+  padding: 0 5px;
+}
+
+#searchBar{
+  border:none;
+  background-color: aliceblue;
+  width: 400px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 18px;
+  outline: none;
+}
+
+
+.noRecords{
+  color:#0a6faa;
+  font-weight: bold;
+  text-align: center;
+}
+
+.viewBtn{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+.viewBtn:hover{
+  text-decoration: none;
+  color: white;
+}
+.viewBtnP{
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 6px;
+  text-align: center;
+  align-items: center;
+  background-color: #002f4b;
+}
+
+.viewBtn :hover{
+  background-color: #0a6faa;
+}
+
+
+.resultCompDiv{
+  margin: 10px 10px;
+  padding: 0 10px;
+ }

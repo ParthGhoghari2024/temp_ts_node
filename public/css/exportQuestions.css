@@ -1,0 +1,80 @@
+.que-head {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0rem;
+  /* align-items: center; */
+
+}
+
+.selectContainer {
+  height: fit-content;
+}
+
+
+select {
+  /* width: 15rem !important; */
+  width: 100% !important;
+  height: fit-content;
+}
+
+.sectionBtn {
+  width: 50rem;
+}
+
+.sectionBtn-active {
+  background: rgba(0, 128, 0, 0.585);
+  color: white;
+}
+
+.queInput {
+  width: 100%;
+  max-width: 100%;
+}
+
+.optionInput {
+  width: 25rem;
+}
+
+.flex-dir-col-gap-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionNavBtn {
+  height: 3rem;
+}
+
+/* scrollbar style for chrome */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #002f4b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.smallInput {
+  width: 10rem !important;
+}
+
+.que-text {
+  word-break: break-all;
+}
+
+.question {
+  width: 75%;
+}
